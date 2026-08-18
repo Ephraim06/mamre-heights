@@ -132,14 +132,9 @@ document.querySelector('#app').innerHTML = `
       <div class="investment-points"><div><span>01</span><b>Multiple income streams</b><p>Residential, retail and garage opportunities.</p></div><div><span>02</span><b>High-demand area</b><p>Growth and infrastructure support demand.</p></div><div><span>03</span><b>Secure & low maintenance</b><p>Modern, efficient systems and finishes.</p></div><div><span>04</span><b>Long-term value</b><p>Quality construction in a growing node.</p></div></div>
     </section>
 
-    <section class="masterplan">
-      <div class="masterplan-copy"><div class="section-number light">08 / Development plan</div><p class="eyebrow reveal">Designed for community</p><h2 class="reveal">See the<br><em>bigger picture.</em></h2><p class="reveal">Explore how apartments, retail, parking and shared amenities come together in one considered plan.</p><button class="button gold open-plan">View masterplan <span>↗</span></button></div>
-      <div class="masterplan-media image-reveal"><img src="${A}masterplan-hd.jpg" alt="Mamre Heights development masterplan"></div>
-    </section>
-
     <section id="approved-plans" class="approved-plans section-pad">
       <div class="approved-plans-copy">
-        <div class="section-number">09 / Municipal approval</div>
+        <div class="section-number">08 / Municipal approval</div>
         <p class="eyebrow dark reveal">The vision, officially approved</p>
         <h2 class="reveal">Explore every detail.<br><em>See what is taking shape.</em></h2>
         <p class="approved-plans-lead reveal">View the complete approved drawing set in exceptional detail. Move through all 36 sheets, zoom into technical notes and layouts, or download the signed plan pack for your records.</p>
@@ -175,7 +170,6 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
   <div class="modal gallery-modal" role="dialog" aria-modal="true" aria-label="Development gallery" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="lightbox-stage"><button class="gallery-prev" aria-label="Previous image">←</button><img alt="Mamre Heights development view"><button class="gallery-next" aria-label="Next image">→</button></div><div class="gallery-caption"><span>01 / 06</span><p></p></div></div>
-  <div class="modal plan-modal" role="dialog" aria-modal="true" aria-label="Development masterplan" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="plan-wrap"><img src="${A}masterplan-large-hd.jpg" alt="Mamre Heights ground storey masterplan"><div><span>Development masterplan</span><p>Ground-storey plan showing retail, access, secure garages, play area, drying yard and vendor spaces.</p></div></div></div>
   <div class="modal approved-plans-modal" role="dialog" aria-modal="true" aria-labelledby="approved-plans-title" aria-hidden="true">
     <header class="plans-viewer-header">
       <div><span class="plans-viewer-kicker">Municipally approved · Mamre Heights</span><h2 id="approved-plans-title">Approved plans</h2></div>
@@ -240,7 +234,7 @@ const galleryItems=[['hero-hd.jpg','Modern community living'],['interior-hd.jpg'
 let galleryIndex=0; const gm=$('.gallery-modal');
 function renderGallery(){const [src,cap]=galleryItems[galleryIndex]; $('img',gm).src=A+src; $('.gallery-caption span',gm).textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}`; $('.gallery-caption p',gm).textContent=cap;}
 $('.open-gallery').onclick=()=>{renderGallery();openModal(gm)}; $('.gallery-prev').onclick=()=>{galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;renderGallery()}; $('.gallery-next').onclick=()=>{galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery()};
-$('.open-plan').onclick=()=>openModal($('.plan-modal')); $('.disclaimer-button').onclick=()=>openModal($('.disclaimer-modal'));
+$('.disclaimer-button').onclick=()=>openModal($('.disclaimer-modal'));
 
 const approvedPlansModal = $('.approved-plans-modal');
 const approvedPlanImage = $('.approved-plan-image', approvedPlansModal);
@@ -266,7 +260,7 @@ for (let sheet = 1; sheet <= 36; sheet += 1) {
 function applyPlanTransform() {
   approvedPlanImage.style.transform = `translate3d(${planState.x}px, ${planState.y}px, 0) scale(${planState.scale})`;
   $('.plan-zoom-reset', approvedPlansModal).textContent = `${Math.round(planState.scale * 100)}%`;
-  approvedPlanStage.classList.toggle('can-pan', planState.scale > 1);
+  approvedPlanStage.classList.add('can-pan');
 }
 
 function resetPlanView() {
@@ -310,7 +304,8 @@ $('.plans-fullscreen', approvedPlansModal).onclick = () => {
 approvedPlanStage.addEventListener('wheel', event => { event.preventDefault(); zoomPlan(event.deltaY < 0 ? .2 : -.2); }, { passive: false });
 approvedPlanStage.addEventListener('dblclick', () => { planState.scale = planState.scale > 1 ? 1 : 2; if (planState.scale === 1) { planState.x = 0; planState.y = 0; } applyPlanTransform(); });
 approvedPlanStage.addEventListener('pointerdown', event => {
-  if (planState.scale <= 1) return;
+  if (event.pointerType === 'mouse' && event.button !== 0) return;
+  event.preventDefault();
   planState.dragging = true;
   planState.startX = event.clientX - planState.x;
   planState.startY = event.clientY - planState.y;
