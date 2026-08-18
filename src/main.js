@@ -5,6 +5,7 @@ const normalizedScriptPath = decodeURIComponent(scriptLocation.pathname).replace
 const openedFromBuild = normalizedScriptPath.endsWith('/dist/src/main.js');
 const A = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/assets/' : '../assets/', scriptLocation).href;
 const BROCHURE = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/mamre-heights.pdf' : '../mamre-heights.pdf', scriptLocation).href;
+const APPROVED_PLANS = new URL('Plans/ERF611%20Mamre%20Municipal%20Approval%20plans.pdf', A).href;
 
 document.querySelector('#app').innerHTML = `
   <div class="loader" aria-hidden="true"><div class="loader-mark">MH</div><div class="loader-line"><i></i></div></div>
@@ -15,7 +16,7 @@ document.querySelector('#app').innerHTML = `
       <span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#investment">Invest</a>
+      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#approved-plans">Plans</a>
     </nav>
     <div class="header-actions">
       <button class="text-button open-enquiry" data-interest="General enquiry">Register interest</button>
@@ -31,7 +32,8 @@ document.querySelector('#app').innerHTML = `
       <a href="#lifestyle"><span>02</span>Lifestyle</a>
       <a href="#location"><span>03</span>Location</a>
       <a href="#investment"><span>04</span>Investment</a>
-      <a href="#contact"><span>05</span>Enquire</a>
+      <a href="#approved-plans"><span>05</span>Approved plans</a>
+      <a href="#contact"><span>06</span>Enquire</a>
     </nav>
     <div class="drawer-foot">Modern community living<br>in the heart of Mamre.</div>
   </aside><div class="drawer-backdrop"></div>
@@ -115,7 +117,7 @@ document.querySelector('#app').innerHTML = `
     </section>
 
     <section id="location" class="location">
-      <div class="location-map"><img src="${A}location-hd.jpg" alt="Location map showing Mamre Heights and nearby amenities"></div>
+      <div class="location-map"><img src="${A}section-6-img.jpeg" alt="Aerial location map showing Mamre Heights and nearby schools, shops, churches, transport, clinic and sports fields"></div>
       <div class="location-copy">
         <div class="section-number light">06 / Perfectly positioned</div><p class="eyebrow reveal">In the heart of Mamre</p><h2 class="reveal">Close to what matters.<br><em>Connected to more.</em></h2>
         <p class="reveal">A peaceful community address with schools, shops, places of worship and public transport nearby—plus straightforward access to the R27, Atlantis and the West Coast.</p>
@@ -135,10 +137,34 @@ document.querySelector('#app').innerHTML = `
       <div class="masterplan-media image-reveal"><img src="${A}masterplan-hd.jpg" alt="Mamre Heights development masterplan"></div>
     </section>
 
+    <section id="approved-plans" class="approved-plans section-pad">
+      <div class="approved-plans-copy">
+        <div class="section-number">09 / Municipal approval</div>
+        <p class="eyebrow dark reveal">The vision, officially approved</p>
+        <h2 class="reveal">Explore every detail.<br><em>See what is taking shape.</em></h2>
+        <p class="approved-plans-lead reveal">View the complete approved drawing set in exceptional detail. Move through all 36 sheets, zoom into technical notes and layouts, or download the signed plan pack for your records.</p>
+        <div class="approved-plan-facts reveal">
+          <div><strong>36</strong><span>approved drawing sheets</span></div>
+          <div><strong>9K</strong><span>ultra-HD source detail</span></div>
+          <div><strong>PDF</strong><span>complete plan pack</span></div>
+        </div>
+        <div class="approved-plan-actions reveal">
+          <button class="button dark open-approved-plans">Explore approved plans <span>↗</span></button>
+          <a class="arrow-link" href="${APPROVED_PLANS}" download>Download complete PDF <span>↓</span></a>
+        </div>
+      </div>
+      <button class="approved-plan-preview image-reveal open-approved-plans" aria-label="Open interactive approved plans viewer">
+        <img src="${A}approved-plans-preview.jpg" alt="Preview of the municipally approved Mamre Heights site plan">
+        <span class="approval-stamp"><i>✓</i><b>Municipally<br>approved</b></span>
+        <span class="plan-explore"><b>Explore the plans</b><i>Drag · zoom · inspect</i><em>↗</em></span>
+        <span class="plan-grid-lines" aria-hidden="true"></span>
+      </button>
+    </section>
+
     <section id="contact" class="contact section-pad">
       <div class="contact-top"><div><p class="eyebrow reveal">Your next chapter starts here</p><h2 class="reveal">Live. Shop.<br><em>Connect. Thrive.</em></h2></div><p class="reveal">Register your interest and let our property professionals help you take the next step with confidence.</p></div>
       <div class="contact-actions reveal"><button class="contact-choice open-enquiry" data-interest="Residential apartment"><span>01</span><b>I'm looking to live here</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Investment opportunity"><span>02</span><b>I'm looking to invest</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Retail leasing opportunity"><span>03</span><b>I'm looking for retail space</b><i>↗</i></button></div>
-      <footer><a class="brand footer-brand" href="#top"><span class="brand-monogram">MH</span><span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span></a><div>Marceleno & Gaylin<br>Property Professionals</div><div><a href="${BROCHURE}" target="_blank">Download brochure ↗</a><button class="disclaimer-button">Disclaimer</button></div><small>© 2026 Mamre Heights. Artist's impressions are for illustrative purposes only.</small></footer>
+      <footer><a class="brand footer-brand" href="#top"><span class="brand-monogram">MH</span><span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span></a><div>Marceleno & Gaylin<br>Property Professionals</div><div><a href="${BROCHURE}" target="_blank">Download brochure ↗</a><a href="${APPROVED_PLANS}" download>Download approved plans ↓</a><button class="disclaimer-button">Disclaimer</button></div><small>© 2026 Mamre Heights. Artist's impressions are for illustrative purposes only.</small></footer>
     </section>
   </main>
 
@@ -150,6 +176,27 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div class="modal gallery-modal" role="dialog" aria-modal="true" aria-label="Development gallery" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="lightbox-stage"><button class="gallery-prev" aria-label="Previous image">←</button><img alt="Mamre Heights development view"><button class="gallery-next" aria-label="Next image">→</button></div><div class="gallery-caption"><span>01 / 06</span><p></p></div></div>
   <div class="modal plan-modal" role="dialog" aria-modal="true" aria-label="Development masterplan" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="plan-wrap"><img src="${A}masterplan-large-hd.jpg" alt="Mamre Heights ground storey masterplan"><div><span>Development masterplan</span><p>Ground-storey plan showing retail, access, secure garages, play area, drying yard and vendor spaces.</p></div></div></div>
+  <div class="modal approved-plans-modal" role="dialog" aria-modal="true" aria-labelledby="approved-plans-title" aria-hidden="true">
+    <header class="plans-viewer-header">
+      <div><span class="plans-viewer-kicker">Municipally approved · Mamre Heights</span><h2 id="approved-plans-title">Approved plans</h2></div>
+      <div class="plans-viewer-actions"><a href="${APPROVED_PLANS}" download>Download PDF <span>↓</span></a><button class="plans-fullscreen" aria-label="View plans fullscreen" title="Fullscreen">⛶</button><button class="modal-close" aria-label="Close">×</button></div>
+    </header>
+    <div class="plans-viewer-body">
+      <aside class="plan-sheet-rail"><div class="plan-sheet-rail-head"><b>Drawing register</b><span>36 sheets</span></div><div class="plan-sheet-list"></div></aside>
+      <div class="approved-plan-canvas">
+        <div class="approved-plan-stage" aria-label="Zoomable approved plan drawing">
+          <div class="plan-loading"><i></i><span>Loading full-resolution sheet</span></div>
+          <img class="approved-plan-image" alt="Approved Mamre Heights plan sheet" draggable="false">
+          <div class="plan-stage-hint">Scroll to zoom · drag to move</div>
+        </div>
+        <div class="plan-toolbar">
+          <div class="plan-sheet-status"><span class="current-plan-count">24 / 36</span><b class="current-plan-name">Architectural approval</b></div>
+          <div class="plan-nav"><button class="plan-prev" aria-label="Previous plan sheet">←</button><button class="plan-next" aria-label="Next plan sheet">→</button></div>
+          <div class="plan-zoom"><button class="plan-zoom-out" aria-label="Zoom out">−</button><button class="plan-zoom-reset" aria-label="Reset zoom">100%</button><button class="plan-zoom-in" aria-label="Zoom in">+</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="modal disclaimer-modal" role="dialog" aria-modal="true" aria-label="Disclaimer" aria-hidden="true"><div class="modal-panel small"><button class="modal-close" aria-label="Close">×</button><div class="modal-kicker">Important information</div><h2>Disclaimer</h2><p>All images, renders and visual representations are for illustrative purposes only and are intended to provide a general idea of the proposed development.</p><p>The final design, finishes, landscaping and layout will be based on approved architectural plans and specifications. All details are subject to change and will be confirmed according to final plans.</p></div></div>
   <button class="floating-enquire open-enquiry" data-interest="General enquiry"><span>Enquire</span><b>↗</b></button>
 `;
@@ -157,7 +204,10 @@ document.querySelector('#app').innerHTML = `
 const $ = (s, scope = document) => scope.querySelector(s);
 const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
 
-window.addEventListener('load', () => setTimeout(() => document.body.classList.add('loaded'), 300));
+// The interface should never wait on every large marketing image before it
+// becomes usable, especially now that the approved drawing set is available.
+setTimeout(() => document.body.classList.add('loaded'), 300);
+if (location.hash) setTimeout(() => document.querySelector(location.hash)?.scrollIntoView(), 50);
 
 const header = $('.site-header');
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 50), { passive: true });
@@ -191,3 +241,96 @@ let galleryIndex=0; const gm=$('.gallery-modal');
 function renderGallery(){const [src,cap]=galleryItems[galleryIndex]; $('img',gm).src=A+src; $('.gallery-caption span',gm).textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}`; $('.gallery-caption p',gm).textContent=cap;}
 $('.open-gallery').onclick=()=>{renderGallery();openModal(gm)}; $('.gallery-prev').onclick=()=>{galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;renderGallery()}; $('.gallery-next').onclick=()=>{galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery()};
 $('.open-plan').onclick=()=>openModal($('.plan-modal')); $('.disclaimer-button').onclick=()=>openModal($('.disclaimer-modal'));
+
+const approvedPlansModal = $('.approved-plans-modal');
+const approvedPlanImage = $('.approved-plan-image', approvedPlansModal);
+const approvedPlanStage = $('.approved-plan-stage', approvedPlansModal);
+const planSheetList = $('.plan-sheet-list', approvedPlansModal);
+const planState = { sheet: 24, scale: 1, x: 0, y: 0, dragging: false, startX: 0, startY: 0 };
+
+function planGroup(sheet) {
+  if (sheet === 1 || sheet === 13) return 'Civil engineering';
+  if (sheet < 24) return 'Consultant & compliance';
+  return 'Architectural approval';
+}
+
+for (let sheet = 1; sheet <= 36; sheet += 1) {
+  const button = document.createElement('button');
+  button.className = 'plan-sheet-button';
+  button.dataset.sheet = sheet;
+  button.innerHTML = `<span>${String(sheet).padStart(2, '0')}</span><span><b>Sheet ${String(sheet).padStart(2, '0')}</b><small>${planGroup(sheet)}</small></span><i>↗</i>`;
+  button.onclick = () => renderApprovedPlan(sheet);
+  planSheetList.append(button);
+}
+
+function applyPlanTransform() {
+  approvedPlanImage.style.transform = `translate3d(${planState.x}px, ${planState.y}px, 0) scale(${planState.scale})`;
+  $('.plan-zoom-reset', approvedPlansModal).textContent = `${Math.round(planState.scale * 100)}%`;
+  approvedPlanStage.classList.toggle('can-pan', planState.scale > 1);
+}
+
+function resetPlanView() {
+  planState.scale = 1;
+  planState.x = 0;
+  planState.y = 0;
+  applyPlanTransform();
+}
+
+function renderApprovedPlan(sheet) {
+  planState.sheet = Math.min(36, Math.max(1, sheet));
+  approvedPlanStage.classList.add('is-loading');
+  approvedPlanImage.onload = () => approvedPlanStage.classList.remove('is-loading');
+  approvedPlanImage.onerror = () => approvedPlanStage.classList.remove('is-loading');
+  approvedPlanImage.src = `${A}Plans/${planState.sheet}.jpg`;
+  approvedPlanImage.alt = `Approved Mamre Heights plan sheet ${planState.sheet} of 36`;
+  $('.current-plan-count', approvedPlansModal).textContent = `${String(planState.sheet).padStart(2, '0')} / 36`;
+  $('.current-plan-name', approvedPlansModal).textContent = planGroup(planState.sheet);
+  $$('.plan-sheet-button', approvedPlansModal).forEach(button => button.classList.toggle('active', +button.dataset.sheet === planState.sheet));
+  const active = $('.plan-sheet-button.active', approvedPlansModal);
+  if (approvedPlansModal.classList.contains('open')) active?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  resetPlanView();
+}
+
+function zoomPlan(amount) {
+  planState.scale = Math.min(5, Math.max(1, planState.scale + amount));
+  if (planState.scale === 1) { planState.x = 0; planState.y = 0; }
+  applyPlanTransform();
+}
+
+$$('.open-approved-plans').forEach(button => button.onclick = () => { renderApprovedPlan(planState.sheet); openModal(approvedPlansModal); });
+$('.plan-prev', approvedPlansModal).onclick = () => renderApprovedPlan(planState.sheet === 1 ? 36 : planState.sheet - 1);
+$('.plan-next', approvedPlansModal).onclick = () => renderApprovedPlan(planState.sheet === 36 ? 1 : planState.sheet + 1);
+$('.plan-zoom-in', approvedPlansModal).onclick = () => zoomPlan(.25);
+$('.plan-zoom-out', approvedPlansModal).onclick = () => zoomPlan(-.25);
+$('.plan-zoom-reset', approvedPlansModal).onclick = resetPlanView;
+$('.plans-fullscreen', approvedPlansModal).onclick = () => {
+  if (!document.fullscreenElement) approvedPlansModal.requestFullscreen?.();
+  else document.exitFullscreen?.();
+};
+approvedPlanStage.addEventListener('wheel', event => { event.preventDefault(); zoomPlan(event.deltaY < 0 ? .2 : -.2); }, { passive: false });
+approvedPlanStage.addEventListener('dblclick', () => { planState.scale = planState.scale > 1 ? 1 : 2; if (planState.scale === 1) { planState.x = 0; planState.y = 0; } applyPlanTransform(); });
+approvedPlanStage.addEventListener('pointerdown', event => {
+  if (planState.scale <= 1) return;
+  planState.dragging = true;
+  planState.startX = event.clientX - planState.x;
+  planState.startY = event.clientY - planState.y;
+  approvedPlanStage.setPointerCapture(event.pointerId);
+  approvedPlanStage.classList.add('is-panning');
+});
+approvedPlanStage.addEventListener('pointermove', event => {
+  if (!planState.dragging) return;
+  planState.x = event.clientX - planState.startX;
+  planState.y = event.clientY - planState.startY;
+  applyPlanTransform();
+});
+function endPlanPan() { planState.dragging = false; approvedPlanStage.classList.remove('is-panning'); }
+approvedPlanStage.addEventListener('pointerup', endPlanPan);
+approvedPlanStage.addEventListener('pointercancel', endPlanPan);
+document.addEventListener('keydown', event => {
+  if (!approvedPlansModal.classList.contains('open')) return;
+  if (event.key === 'ArrowLeft') renderApprovedPlan(planState.sheet === 1 ? 36 : planState.sheet - 1);
+  if (event.key === 'ArrowRight') renderApprovedPlan(planState.sheet === 36 ? 1 : planState.sheet + 1);
+  if (event.key === '+' || event.key === '=') zoomPlan(.25);
+  if (event.key === '-') zoomPlan(-.25);
+  if (event.key === '0') resetPlanView();
+});
