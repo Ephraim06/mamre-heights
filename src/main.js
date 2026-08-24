@@ -6,6 +6,15 @@ const openedFromBuild = normalizedScriptPath.endsWith('/dist/src/main.js');
 const A = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/assets/' : '../assets/', scriptLocation).href;
 const BROCHURE = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/mamre-heights.pdf' : '../mamre-heights.pdf', scriptLocation).href;
 const APPROVED_PLANS = new URL('Plans/ERF611%20Mamre%20Municipal%20Approval%20plans.pdf', A).href;
+const DEVELOPMENT_LOCATION = new URL('development-location/', A).href;
+const LOCATION_SHOTS = [
+  'WhatsApp Image 2026-08-19 at 09.10.23 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.23.jpeg',
+  'WhatsApp Image 2026-08-19 at 09.10.24 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.24 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.24.jpeg',
+  'WhatsApp Image 2026-08-19 at 09.10.25 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.25 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.25.jpeg',
+  'WhatsApp Image 2026-08-19 at 09.10.26 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.26 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.26.jpeg',
+  'WhatsApp Image 2026-08-19 at 09.10.27 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.27 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.27.jpeg'
+];
+const locationShotUrl = index => DEVELOPMENT_LOCATION + encodeURIComponent(LOCATION_SHOTS[index]);
 
 document.querySelector('#app').innerHTML = `
   <div class="loader" aria-hidden="true"><div class="loader-mark">MH</div><div class="loader-line"><i></i></div></div>
@@ -31,10 +40,11 @@ document.querySelector('#app').innerHTML = `
       <a href="#residences"><span>01</span>Residences</a>
       <a href="#lifestyle"><span>02</span>Lifestyle</a>
       <a href="#location"><span>03</span>Location</a>
-      <a href="#investment"><span>04</span>Investment</a>
-      <a href="#approved-plans"><span>05</span>Approved plans</a>
-      <a href="#partners"><span>06</span>Development partners</a>
-      <a href="#contact"><span>07</span>Enquire</a>
+      <a href="#site-gallery"><span>04</span>Actual site</a>
+      <a href="#investment"><span>05</span>Investment</a>
+      <a href="#approved-plans"><span>06</span>Approved plans</a>
+      <a href="#partners"><span>07</span>Development partners</a>
+      <a href="#contact"><span>08</span>Enquire</a>
     </nav>
     <div class="drawer-foot">Modern community living<br>in the heart of Mamre.</div>
   </aside><div class="drawer-backdrop"></div>
@@ -127,15 +137,37 @@ document.querySelector('#app').innerHTML = `
       </div>
     </section>
 
+    <section id="site-gallery" class="site-gallery section-pad">
+      <div class="site-gallery-head">
+        <div><div class="section-number">07 / Development location</div><p class="eyebrow dark reveal">The real setting, from above</p><h2 class="reveal">See the site.<br><em>Know the neighbourhood.</em></h2></div>
+        <div class="site-gallery-intro reveal"><p>Recent aerial photography places Mamre Heights in its real context—from the existing road network and surrounding homes to community facilities and the wider landscape.</p><button class="arrow-link open-site-gallery" data-site-index="13">Explore all 14 aerial views <span>↗</span></button></div>
+      </div>
+      <div class="site-gallery-mosaic">
+        <button class="site-shot site-shot-main image-reveal open-site-gallery" data-site-index="13" aria-label="Open full aerial gallery">
+          <img src="${locationShotUrl(13)}" alt="Aerial view of the Mamre Heights development site and surrounding neighbourhood">
+          <span class="site-shot-caption"><small>01 / Actual site</small><b>The development in context</b><i>Open gallery ↗</i></span>
+        </button>
+        <button class="site-shot image-reveal open-site-gallery" data-site-index="9" aria-label="View main road connection aerial image">
+          <img src="${locationShotUrl(9)}" alt="Aerial view of the main road connection near Mamre Heights">
+          <span class="site-shot-caption"><small>02 / Connection</small><b>Linked to the neighbourhood</b></span>
+        </button>
+        <button class="site-shot image-reveal open-site-gallery" data-site-index="0" aria-label="View wider Mamre neighbourhood aerial image">
+          <img src="${locationShotUrl(0)}" alt="Wide aerial view across Mamre and the development location">
+          <span class="site-shot-caption"><small>03 / Wider setting</small><b>Part of an established community</b></span>
+        </button>
+      </div>
+      <div class="site-gallery-facts reveal"><span>14 aerial perspectives</span><i>◆</i><span>Existing road access</span><i>◆</i><span>Established community</span><i>◆</i><span>Real site photography</span></div>
+    </section>
+
     <section id="investment" class="investment section-pad">
-      <div class="investment-head"><div><div class="section-number">07 / The opportunity</div><p class="eyebrow dark reveal">Built for growth</p><h2 class="reveal">A smart move today.<br><em>A stronger tomorrow.</em></h2></div><p class="reveal">Residential comfort meets commercial momentum in a growing node—creating an address designed for lasting demand and long-term value.</p></div>
+      <div class="investment-head"><div><div class="section-number">08 / The opportunity</div><p class="eyebrow dark reveal">Built for growth</p><h2 class="reveal">A smart move today.<br><em>A stronger tomorrow.</em></h2></div><p class="reveal">Residential comfort meets commercial momentum in a growing node—creating an address designed for lasting demand and long-term value.</p></div>
       <div class="investment-image image-reveal"><img src="${A}investment-hd.jpg" alt="Mamre Heights mixed-use development illuminated at dusk"><button class="investment-cta open-enquiry" data-interest="Investment opportunity"><span>Request an<br>investment pack</span><b>↗</b></button></div>
       <div class="investment-points"><div><span>01</span><b>Multiple income streams</b><p>Residential, retail and garage opportunities.</p></div><div><span>02</span><b>High-demand area</b><p>Growth and infrastructure support demand.</p></div><div><span>03</span><b>Secure & low maintenance</b><p>Modern, efficient systems and finishes.</p></div><div><span>04</span><b>Long-term value</b><p>Quality construction in a growing node.</p></div></div>
     </section>
 
     <section id="approved-plans" class="approved-plans section-pad">
       <div class="approved-plans-copy">
-        <div class="section-number">08 / Municipal approval</div>
+        <div class="section-number">09 / Municipal approval</div>
         <p class="eyebrow dark reveal">The vision, officially approved</p>
         <h2 class="reveal">Explore every detail.<br><em>See what is taking shape.</em></h2>
         <p class="approved-plans-lead reveal">View the complete approved drawing set in exceptional detail. Move through all 36 sheets, zoom into technical notes and layouts, or download the signed plan pack for your records.</p>
@@ -159,7 +191,7 @@ document.querySelector('#app').innerHTML = `
 
     <section id="partners" class="partners section-pad">
       <div class="partners-intro">
-        <div class="section-number light">09 / Development partners</div>
+        <div class="section-number light">10 / Development partners</div>
         <p class="eyebrow reveal">The team behind Mamre Heights</p>
         <h2 class="reveal">Built together.<br><em>Delivered with purpose.</em></h2>
         <p class="reveal">A trusted team of property, professional and finance partners working together to bring this landmark Mamre development to life.</p>
@@ -194,6 +226,15 @@ document.querySelector('#app').innerHTML = `
     </div>
   </div>
   <div class="modal gallery-modal" role="dialog" aria-modal="true" aria-label="Development gallery" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="lightbox-stage"><button class="gallery-prev" aria-label="Previous image">←</button><img alt="Mamre Heights development view"><button class="gallery-next" aria-label="Next image">→</button></div><div class="gallery-caption"><span>01 / 06</span><p></p></div></div>
+  <div class="modal site-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="site-gallery-title" aria-hidden="true">
+    <header class="site-viewer-header"><div><span>Actual site · Mamre, Western Cape</span><h2 id="site-gallery-title">Development location</h2></div><div><button class="site-gallery-fullscreen" aria-label="View gallery fullscreen">⛶</button><button class="modal-close" aria-label="Close">×</button></div></header>
+    <div class="site-viewer-stage">
+      <button class="site-viewer-prev" aria-label="Previous aerial image">←</button>
+      <figure><img alt="Aerial photograph of the Mamre Heights development location"><figcaption><span class="site-viewer-count">01 / 14</span><b class="site-viewer-caption">Development site and surrounding Mamre neighbourhood</b></figcaption></figure>
+      <button class="site-viewer-next" aria-label="Next aerial image">→</button>
+    </div>
+    <div class="site-viewer-thumbs" aria-label="Aerial image thumbnails"></div>
+  </div>
   <div class="modal approved-plans-modal" role="dialog" aria-modal="true" aria-labelledby="approved-plans-title" aria-hidden="true">
     <header class="plans-viewer-header">
       <div><span class="plans-viewer-kicker">Municipally approved · Mamre Heights</span><h2 id="approved-plans-title">Approved plans</h2></div>
@@ -260,6 +301,69 @@ let galleryIndex=0; const gm=$('.gallery-modal');
 function renderGallery(){const [src,cap]=galleryItems[galleryIndex]; $('img',gm).src=A+src; $('.gallery-caption span',gm).textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}`; $('.gallery-caption p',gm).textContent=cap;}
 $('.open-gallery').onclick=()=>{renderGallery();openModal(gm)}; $('.gallery-prev').onclick=()=>{galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;renderGallery()}; $('.gallery-next').onclick=()=>{galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery()};
 $('.disclaimer-button').onclick=()=>openModal($('.disclaimer-modal'));
+
+const siteGalleryModal = $('.site-gallery-modal');
+const siteGalleryCaptions = [
+  'Established neighbourhood, community fields and the development surrounds',
+  'The development site within the wider Mamre landscape',
+  'Existing site roads and the adjoining residential community',
+  'Neighbourhood edge and wider development land',
+  'Southern approach across the site toward Mamre',
+  'Internal road network and surrounding residential fabric',
+  'Western site edge and natural landscape',
+  'Wider landscape connection beyond the neighbourhood',
+  'Development roads, plots and established community context',
+  'Main-road connection into the Mamre neighbourhood',
+  'Existing intersection and local movement network',
+  'Mamre main route and surrounding homes',
+  'Development land and completed internal road infrastructure',
+  'Complete aerial overview of the Mamre Heights location'
+];
+let siteGalleryIndex = 13;
+
+LOCATION_SHOTS.forEach((name, index) => {
+  const button = document.createElement('button');
+  button.className = 'site-thumb';
+  button.setAttribute('aria-label', `View aerial image ${index + 1}`);
+  button.innerHTML = `<img loading="lazy" src="${locationShotUrl(index)}" alt=""><span>${String(index + 1).padStart(2, '0')}</span>`;
+  button.onclick = () => renderSiteGallery(index);
+  $('.site-viewer-thumbs', siteGalleryModal).append(button);
+});
+
+function renderSiteGallery(index) {
+  siteGalleryIndex = (index + LOCATION_SHOTS.length) % LOCATION_SHOTS.length;
+  const image = $('.site-viewer-stage figure>img', siteGalleryModal);
+  image.classList.add('switching');
+  const nextSource = locationShotUrl(siteGalleryIndex);
+  const revealImage = () => image.classList.remove('switching');
+  if (image.src === nextSource) revealImage();
+  else { image.onload = revealImage; image.src = nextSource; }
+  image.alt = siteGalleryCaptions[siteGalleryIndex];
+  $('.site-viewer-count', siteGalleryModal).textContent = `${String(siteGalleryIndex + 1).padStart(2, '0')} / ${LOCATION_SHOTS.length}`;
+  $('.site-viewer-caption', siteGalleryModal).textContent = siteGalleryCaptions[siteGalleryIndex];
+  $$('.site-thumb', siteGalleryModal).forEach((thumb, thumbIndex) => thumb.classList.toggle('active', thumbIndex === siteGalleryIndex));
+  if (siteGalleryModal.classList.contains('open')) $('.site-thumb.active', siteGalleryModal)?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function previousSiteImage() { renderSiteGallery(siteGalleryIndex - 1); }
+function nextSiteImage() { renderSiteGallery(siteGalleryIndex + 1); }
+$$('.open-site-gallery').forEach(button => button.onclick = () => {
+  renderSiteGallery(+(button.dataset.siteIndex || 0));
+  openModal(siteGalleryModal);
+  requestAnimationFrame(() => $('.site-thumb.active', siteGalleryModal)?.scrollIntoView({ inline: 'center', block: 'nearest' }));
+});
+$('.site-viewer-prev', siteGalleryModal).onclick = previousSiteImage;
+$('.site-viewer-next', siteGalleryModal).onclick = nextSiteImage;
+$('.site-gallery-fullscreen', siteGalleryModal).onclick = () => document.fullscreenElement ? document.exitFullscreen?.() : siteGalleryModal.requestFullscreen?.();
+let siteSwipeStartX = 0;
+let siteSwipeStartY = 0;
+$('.site-viewer-stage', siteGalleryModal).addEventListener('pointerdown', event => { if (event.pointerType !== 'mouse') { siteSwipeStartX = event.clientX; siteSwipeStartY = event.clientY; } });
+$('.site-viewer-stage', siteGalleryModal).addEventListener('pointerup', event => {
+  if (event.pointerType === 'mouse') return;
+  const deltaX = event.clientX - siteSwipeStartX;
+  const deltaY = event.clientY - siteSwipeStartY;
+  if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) deltaX < 0 ? nextSiteImage() : previousSiteImage();
+});
 
 const approvedPlansModal = $('.approved-plans-modal');
 const approvedPlanImage = $('.approved-plan-image', approvedPlansModal);
@@ -433,6 +537,11 @@ function endPlanPointer(event, cancelled = false) {
 approvedPlanStage.addEventListener('pointerup', event => endPlanPointer(event));
 approvedPlanStage.addEventListener('pointercancel', event => endPlanPointer(event, true));
 document.addEventListener('keydown', event => {
+  if (siteGalleryModal.classList.contains('open')) {
+    if (event.key === 'ArrowLeft') previousSiteImage();
+    if (event.key === 'ArrowRight') nextSiteImage();
+    return;
+  }
   if (!approvedPlansModal.classList.contains('open')) return;
   if (event.key === 'ArrowLeft') previousPlan();
   if (event.key === 'ArrowRight') nextPlan();
