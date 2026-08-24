@@ -16,7 +16,7 @@ document.querySelector('#app').innerHTML = `
       <span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#approved-plans">Plans</a>
+      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#approved-plans">Plans</a><a href="#partners">Partners</a>
     </nav>
     <div class="header-actions">
       <button class="text-button open-enquiry" data-interest="General enquiry">Register interest</button>
@@ -33,7 +33,8 @@ document.querySelector('#app').innerHTML = `
       <a href="#location"><span>03</span>Location</a>
       <a href="#investment"><span>04</span>Investment</a>
       <a href="#approved-plans"><span>05</span>Approved plans</a>
-      <a href="#contact"><span>06</span>Enquire</a>
+      <a href="#partners"><span>06</span>Development partners</a>
+      <a href="#contact"><span>07</span>Enquire</a>
     </nav>
     <div class="drawer-foot">Modern community living<br>in the heart of Mamre.</div>
   </aside><div class="drawer-backdrop"></div>
@@ -156,6 +157,29 @@ document.querySelector('#app').innerHTML = `
       </button>
     </section>
 
+    <section id="partners" class="partners section-pad">
+      <div class="partners-intro">
+        <div class="section-number light">09 / Development partners</div>
+        <p class="eyebrow reveal">The team behind Mamre Heights</p>
+        <h2 class="reveal">Built together.<br><em>Delivered with purpose.</em></h2>
+        <p class="reveal">A trusted team of property, professional and finance partners working together to bring this landmark Mamre development to life.</p>
+      </div>
+      <div class="partner-grid reveal" aria-label="Mamre Heights development partners">
+        <article class="partner-card partner-azaria">
+          <div class="partner-logo"><img src="${A}partners/azaria-property-developments.png" alt="Azaria Property Developers"></div>
+          <div class="partner-meta"><span>01</span><div><b>Azaria Property Developers</b><small>Property development</small></div></div>
+        </article>
+        <article class="partner-card partner-adriaans">
+          <div class="partner-logo"><img src="${A}partners/adriaans.jpg" alt="Adriaans"></div>
+          <div class="partner-meta"><span>02</span><div><b>Adriaans</b><small>Development partner</small></div></div>
+        </article>
+        <article class="partner-card partner-betterbond">
+          <div class="partner-logo"><img src="${A}partners/betterbond.jpg" alt="BetterBond"></div>
+          <div class="partner-meta"><span>03</span><div><b>BetterBond</b><small>Home finance partner</small></div></div>
+        </article>
+      </div>
+    </section>
+
     <section id="contact" class="contact section-pad">
       <div class="contact-top"><div><p class="eyebrow reveal">Your next chapter starts here</p><h2 class="reveal">Live. Shop.<br><em>Connect. Thrive.</em></h2></div><p class="reveal">Register your interest and let our property professionals help you take the next step with confidence.</p></div>
       <div class="contact-actions reveal"><button class="contact-choice open-enquiry" data-interest="Residential apartment"><span>01</span><b>I'm looking to live here</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Investment opportunity"><span>02</span><b>I'm looking to invest</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Retail leasing opportunity"><span>03</span><b>I'm looking for retail space</b><i>↗</i></button></div>
@@ -176,17 +200,18 @@ document.querySelector('#app').innerHTML = `
       <div class="plans-viewer-actions"><a href="${APPROVED_PLANS}" download>Download PDF <span>↓</span></a><button class="plans-fullscreen" aria-label="View plans fullscreen" title="Fullscreen">⛶</button><button class="modal-close" aria-label="Close">×</button></div>
     </header>
     <div class="plans-viewer-body">
-      <aside class="plan-sheet-rail"><div class="plan-sheet-rail-head"><b>Drawing register</b><span>36 sheets</span></div><div class="plan-sheet-list"></div></aside>
+      <aside class="plan-sheet-rail"><div class="plan-sheet-rail-head"><b>Drawing register</b><span>36 sheets</span></div><div class="plan-sheet-list" tabindex="0" aria-label="Scrollable drawing register"></div></aside>
       <div class="approved-plan-canvas">
         <div class="approved-plan-stage" aria-label="Zoomable approved plan drawing">
           <div class="plan-loading"><i></i><span>Loading full-resolution sheet</span></div>
           <img class="approved-plan-image" alt="Approved Mamre Heights plan sheet" draggable="false">
           <div class="plan-stage-hint">Scroll to zoom · drag to move</div>
+          <div class="plan-mobile-hint">Pinch to zoom · swipe to change sheet</div>
         </div>
         <div class="plan-toolbar">
-          <div class="plan-sheet-status"><span class="current-plan-count">24 / 36</span><b class="current-plan-name">Architectural approval</b></div>
+          <div class="plan-sheet-status"><span class="current-plan-count">24 / 36</span><b class="current-plan-name">Architectural approval</b><select class="mobile-plan-select" aria-label="Choose a plan sheet"></select></div>
           <div class="plan-nav"><button class="plan-prev" aria-label="Previous plan sheet">←</button><button class="plan-next" aria-label="Next plan sheet">→</button></div>
-          <div class="plan-zoom"><button class="plan-zoom-out" aria-label="Zoom out">−</button><button class="plan-zoom-reset" aria-label="Reset zoom">100%</button><button class="plan-zoom-in" aria-label="Zoom in">+</button></div>
+          <div class="plan-zoom"><button class="plan-zoom-out" aria-label="Zoom out">−</button><button class="plan-zoom-reset" aria-label="Fit full plan sheet" title="Fit full sheet">Fit</button><button class="plan-zoom-in" aria-label="Zoom in">+</button></div>
         </div>
       </div>
     </div>
@@ -240,6 +265,7 @@ const approvedPlansModal = $('.approved-plans-modal');
 const approvedPlanImage = $('.approved-plan-image', approvedPlansModal);
 const approvedPlanStage = $('.approved-plan-stage', approvedPlansModal);
 const planSheetList = $('.plan-sheet-list', approvedPlansModal);
+const mobilePlanSelect = $('.mobile-plan-select', approvedPlansModal);
 const planState = { sheet: 24, scale: 1, x: 0, y: 0, dragging: false, startX: 0, startY: 0 };
 
 function planGroup(sheet) {
@@ -255,11 +281,15 @@ for (let sheet = 1; sheet <= 36; sheet += 1) {
   button.innerHTML = `<span>${String(sheet).padStart(2, '0')}</span><span><b>Sheet ${String(sheet).padStart(2, '0')}</b><small>${planGroup(sheet)}</small></span><i>↗</i>`;
   button.onclick = () => renderApprovedPlan(sheet);
   planSheetList.append(button);
+  const option = document.createElement('option');
+  option.value = sheet;
+  option.textContent = `Sheet ${String(sheet).padStart(2, '0')} · ${planGroup(sheet)}`;
+  mobilePlanSelect.append(option);
 }
 
 function applyPlanTransform() {
   approvedPlanImage.style.transform = `translate3d(${planState.x}px, ${planState.y}px, 0) scale(${planState.scale})`;
-  $('.plan-zoom-reset', approvedPlansModal).textContent = `${Math.round(planState.scale * 100)}%`;
+  $('.plan-zoom-reset', approvedPlansModal).textContent = planState.scale === 1 ? 'Fit' : `${Math.round(planState.scale * 100)}%`;
   approvedPlanStage.classList.add('can-pan');
 }
 
@@ -279,6 +309,7 @@ function renderApprovedPlan(sheet) {
   approvedPlanImage.alt = `Approved Mamre Heights plan sheet ${planState.sheet} of 36`;
   $('.current-plan-count', approvedPlansModal).textContent = `${String(planState.sheet).padStart(2, '0')} / 36`;
   $('.current-plan-name', approvedPlansModal).textContent = planGroup(planState.sheet);
+  mobilePlanSelect.value = planState.sheet;
   $$('.plan-sheet-button', approvedPlansModal).forEach(button => button.classList.toggle('active', +button.dataset.sheet === planState.sheet));
   const active = $('.plan-sheet-button.active', approvedPlansModal);
   if (approvedPlansModal.classList.contains('open')) active?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -292,8 +323,24 @@ function zoomPlan(amount) {
 }
 
 $$('.open-approved-plans').forEach(button => button.onclick = () => { renderApprovedPlan(planState.sheet); openModal(approvedPlansModal); });
-$('.plan-prev', approvedPlansModal).onclick = () => renderApprovedPlan(planState.sheet === 1 ? 36 : planState.sheet - 1);
-$('.plan-next', approvedPlansModal).onclick = () => renderApprovedPlan(planState.sheet === 36 ? 1 : planState.sheet + 1);
+function previousPlan() { renderApprovedPlan(planState.sheet === 1 ? 36 : planState.sheet - 1); }
+function nextPlan() { renderApprovedPlan(planState.sheet === 36 ? 1 : planState.sheet + 1); }
+$('.plan-prev', approvedPlansModal).onclick = previousPlan;
+$('.plan-next', approvedPlansModal).onclick = nextPlan;
+mobilePlanSelect.onchange = event => renderApprovedPlan(+event.target.value);
+planSheetList.addEventListener('wheel', event => {
+  event.preventDefault();
+  event.stopPropagation();
+  planSheetList.scrollTop += event.deltaY;
+}, { passive: false });
+planSheetList.addEventListener('keydown', event => {
+  if (event.key === 'ArrowDown') planSheetList.scrollTop += 62;
+  else if (event.key === 'ArrowUp') planSheetList.scrollTop -= 62;
+  else if (event.key === 'PageDown') planSheetList.scrollTop += planSheetList.clientHeight * .8;
+  else if (event.key === 'PageUp') planSheetList.scrollTop -= planSheetList.clientHeight * .8;
+  else return;
+  event.preventDefault();
+});
 $('.plan-zoom-in', approvedPlansModal).onclick = () => zoomPlan(.25);
 $('.plan-zoom-out', approvedPlansModal).onclick = () => zoomPlan(-.25);
 $('.plan-zoom-reset', approvedPlansModal).onclick = resetPlanView;
@@ -303,28 +350,92 @@ $('.plans-fullscreen', approvedPlansModal).onclick = () => {
 };
 approvedPlanStage.addEventListener('wheel', event => { event.preventDefault(); zoomPlan(event.deltaY < 0 ? .2 : -.2); }, { passive: false });
 approvedPlanStage.addEventListener('dblclick', () => { planState.scale = planState.scale > 1 ? 1 : 2; if (planState.scale === 1) { planState.x = 0; planState.y = 0; } applyPlanTransform(); });
+const planPointers = new Map();
+const planGesture = { startClientX: 0, startClientY: 0, startTime: 0, startDistance: 0, startScale: 1, startCenterX: 0, startCenterY: 0, originX: 0, originY: 0, pointerType: '', pinched: false };
+
+function pointerPair() { return [...planPointers.values()].slice(0, 2); }
+function pairDistance(pair) { return Math.hypot(pair[1].x - pair[0].x, pair[1].y - pair[0].y); }
+function pairCenter(pair) { return { x: (pair[0].x + pair[1].x) / 2, y: (pair[0].y + pair[1].y) / 2 }; }
+
 approvedPlanStage.addEventListener('pointerdown', event => {
   if (event.pointerType === 'mouse' && event.button !== 0) return;
   event.preventDefault();
-  planState.dragging = true;
-  planState.startX = event.clientX - planState.x;
-  planState.startY = event.clientY - planState.y;
+  planPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
   approvedPlanStage.setPointerCapture(event.pointerId);
-  approvedPlanStage.classList.add('is-panning');
+  if (planPointers.size === 1) {
+    planState.dragging = true;
+    planState.startX = event.clientX - planState.x;
+    planState.startY = event.clientY - planState.y;
+    planGesture.startClientX = event.clientX;
+    planGesture.startClientY = event.clientY;
+    planGesture.startTime = performance.now();
+    planGesture.pointerType = event.pointerType;
+    planGesture.pinched = false;
+    if (event.pointerType === 'mouse' || planState.scale > 1) approvedPlanStage.classList.add('is-panning');
+  } else if (planPointers.size === 2) {
+    const pair = pointerPair();
+    const center = pairCenter(pair);
+    const rect = approvedPlanStage.getBoundingClientRect();
+    planGesture.startDistance = Math.max(1, pairDistance(pair));
+    planGesture.startScale = planState.scale;
+    planGesture.startCenterX = center.x - (rect.left + rect.width / 2);
+    planGesture.startCenterY = center.y - (rect.top + rect.height / 2);
+    planGesture.originX = planState.x;
+    planGesture.originY = planState.y;
+    planGesture.pinched = true;
+    approvedPlanStage.classList.add('is-panning', 'is-pinching');
+  }
 });
 approvedPlanStage.addEventListener('pointermove', event => {
+  if (!planPointers.has(event.pointerId)) return;
+  event.preventDefault();
+  planPointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+  if (planPointers.size >= 2) {
+    const pair = pointerPair();
+    const center = pairCenter(pair);
+    const rect = approvedPlanStage.getBoundingClientRect();
+    const nextScale = Math.min(5, Math.max(1, planGesture.startScale * pairDistance(pair) / planGesture.startDistance));
+    const ratio = nextScale / planGesture.startScale;
+    const centerX = center.x - (rect.left + rect.width / 2);
+    const centerY = center.y - (rect.top + rect.height / 2);
+    planState.scale = nextScale;
+    planState.x = centerX - (planGesture.startCenterX - planGesture.originX) * ratio;
+    planState.y = centerY - (planGesture.startCenterY - planGesture.originY) * ratio;
+    applyPlanTransform();
+    return;
+  }
   if (!planState.dragging) return;
-  planState.x = event.clientX - planState.startX;
-  planState.y = event.clientY - planState.startY;
-  applyPlanTransform();
+  if (planGesture.pointerType === 'mouse' || planState.scale > 1) {
+    planState.x = event.clientX - planState.startX;
+    planState.y = event.clientY - planState.startY;
+    approvedPlanStage.classList.add('is-panning');
+    applyPlanTransform();
+  }
 });
-function endPlanPan() { planState.dragging = false; approvedPlanStage.classList.remove('is-panning'); }
-approvedPlanStage.addEventListener('pointerup', endPlanPan);
-approvedPlanStage.addEventListener('pointercancel', endPlanPan);
+function endPlanPointer(event, cancelled = false) {
+  const wasLastPointer = planPointers.size === 1;
+  const deltaX = event.clientX - planGesture.startClientX;
+  const deltaY = event.clientY - planGesture.startClientY;
+  const elapsed = performance.now() - planGesture.startTime;
+  if (!cancelled && wasLastPointer && planGesture.pointerType === 'touch' && !planGesture.pinched && planState.scale === 1 && elapsed < 850 && Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.25) {
+    if (deltaX < 0) nextPlan(); else previousPlan();
+  }
+  planPointers.delete(event.pointerId);
+  if (planPointers.size === 1) {
+    const remaining = [...planPointers.values()][0];
+    planState.startX = remaining.x - planState.x;
+    planState.startY = remaining.y - planState.y;
+  } else if (planPointers.size === 0) {
+    planState.dragging = false;
+    approvedPlanStage.classList.remove('is-panning', 'is-pinching');
+  }
+}
+approvedPlanStage.addEventListener('pointerup', event => endPlanPointer(event));
+approvedPlanStage.addEventListener('pointercancel', event => endPlanPointer(event, true));
 document.addEventListener('keydown', event => {
   if (!approvedPlansModal.classList.contains('open')) return;
-  if (event.key === 'ArrowLeft') renderApprovedPlan(planState.sheet === 1 ? 36 : planState.sheet - 1);
-  if (event.key === 'ArrowRight') renderApprovedPlan(planState.sheet === 36 ? 1 : planState.sheet + 1);
+  if (event.key === 'ArrowLeft') previousPlan();
+  if (event.key === 'ArrowRight') nextPlan();
   if (event.key === '+' || event.key === '=') zoomPlan(.25);
   if (event.key === '-') zoomPlan(-.25);
   if (event.key === '0') resetPlanView();
