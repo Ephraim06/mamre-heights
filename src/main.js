@@ -6,13 +6,14 @@ const openedFromBuild = normalizedScriptPath.endsWith('/dist/src/main.js');
 const A = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/assets/' : '../assets/', scriptLocation).href;
 const BROCHURE = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/mamre-heights.pdf' : '../mamre-heights.pdf', scriptLocation).href;
 const APPROVED_PLANS = new URL('Plans/ERF611%20Mamre%20Municipal%20Approval%20plans.pdf', A).href;
-const DEVELOPMENT_LOCATION = new URL('development-location/', A).href;
+const DEVELOPMENT_LOCATION = new URL('development-location/new/', A).href;
 const LOCATION_SHOTS = [
-  'WhatsApp Image 2026-08-19 at 09.10.23 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.23.jpeg',
-  'WhatsApp Image 2026-08-19 at 09.10.24 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.24 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.24.jpeg',
-  'WhatsApp Image 2026-08-19 at 09.10.25 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.25 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.25.jpeg',
-  'WhatsApp Image 2026-08-19 at 09.10.26 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.26 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.26.jpeg',
-  'WhatsApp Image 2026-08-19 at 09.10.27 (1).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.27 (2).jpeg', 'WhatsApp Image 2026-08-19 at 09.10.27.jpeg'
+  'WhatsApp Image 2026-08-25 at 20.45.39 (1).jpeg',
+  'WhatsApp Image 2026-08-25 at 20.45.39.jpeg',
+  'WhatsApp Image 2026-08-25 at 20.45.40 (1).jpeg',
+  'WhatsApp Image 2026-08-25 at 20.45.40 (2).jpeg',
+  'WhatsApp Image 2026-08-25 at 20.45.40.jpeg',
+  'WhatsApp Image 2026-08-25 at 20.45.41.jpeg'
 ];
 const locationShotUrl = index => DEVELOPMENT_LOCATION + encodeURIComponent(LOCATION_SHOTS[index]);
 
@@ -139,24 +140,24 @@ document.querySelector('#app').innerHTML = `
 
     <section id="site-gallery" class="site-gallery section-pad">
       <div class="site-gallery-head">
-        <div><div class="section-number">07 / Development location</div><p class="eyebrow dark reveal">The real setting, from above</p><h2 class="reveal">See the site.<br><em>Know the neighbourhood.</em></h2></div>
-        <div class="site-gallery-intro reveal"><p>Recent aerial photography places Mamre Heights in its real context—from the existing road network and surrounding homes to community facilities and the wider landscape.</p><button class="arrow-link open-site-gallery" data-site-index="13">Explore all 14 aerial views <span>↗</span></button></div>
+        <div><div class="section-number">07 / Development location</div><p class="eyebrow dark reveal">The character of Mamre</p><h2 class="reveal">Rooted in place.<br><em>Rich in character.</em></h2></div>
+        <div class="site-gallery-intro reveal"><p>Whitewashed walls, historic gables, mature gardens and a distinct village character reveal the sense of place surrounding Mamre Heights—an address shaped by heritage and community.</p><button class="arrow-link open-site-gallery" data-site-index="1">Explore all 6 location views <span>↗</span></button></div>
       </div>
       <div class="site-gallery-mosaic">
-        <button class="site-shot site-shot-main image-reveal open-site-gallery" data-site-index="13" aria-label="Open full aerial gallery">
-          <img src="${locationShotUrl(13)}" alt="Aerial view of the Mamre Heights development site and surrounding neighbourhood">
-          <span class="site-shot-caption"><small>01 / Actual site</small><b>The development in context</b><i>Open gallery ↗</i></span>
+        <button class="site-shot site-shot-main image-reveal open-site-gallery" data-site-index="1" aria-label="Open full development location gallery">
+          <img src="${locationShotUrl(1)}" alt="Historic whitewashed building and landscaped gardens in Mamre">
+          <span class="site-shot-caption"><small>01 / Sense of place</small><b>Mamre's living character</b><i>Open gallery ↗</i></span>
         </button>
-        <button class="site-shot image-reveal open-site-gallery" data-site-index="9" aria-label="View main road connection aerial image">
-          <img src="${locationShotUrl(9)}" alt="Aerial view of the main road connection near Mamre Heights">
-          <span class="site-shot-caption"><small>02 / Connection</small><b>Linked to the neighbourhood</b></span>
+        <button class="site-shot image-reveal open-site-gallery" data-site-index="4" aria-label="View historic Winkel building">
+          <img src="${locationShotUrl(4)}" alt="Historic Winkel building, lawn and gardens in Mamre">
+          <span class="site-shot-caption"><small>02 / Heritage</small><b>Architecture shaped by time</b></span>
         </button>
-        <button class="site-shot image-reveal open-site-gallery" data-site-index="0" aria-label="View wider Mamre neighbourhood aerial image">
-          <img src="${locationShotUrl(0)}" alt="Wide aerial view across Mamre and the development location">
-          <span class="site-shot-caption"><small>03 / Wider setting</small><b>Part of an established community</b></span>
+        <button class="site-shot image-reveal open-site-gallery" data-site-index="0" aria-label="View historic gabled building">
+          <img src="${locationShotUrl(0)}" alt="Historic gabled building and timber veranda in Mamre">
+          <span class="site-shot-caption"><small>03 / Detail</small><b>A story in every facade</b></span>
         </button>
       </div>
-      <div class="site-gallery-facts reveal"><span>14 aerial perspectives</span><i>◆</i><span>Existing road access</span><i>◆</i><span>Established community</span><i>◆</i><span>Real site photography</span></div>
+      <div class="site-gallery-facts reveal"><span>6 location perspectives</span><i>◆</i><span>Historic character</span><i>◆</i><span>Established landscape</span><i>◆</i><span>Real location photography</span></div>
     </section>
 
     <section id="investment" class="investment section-pad">
@@ -227,10 +228,10 @@ document.querySelector('#app').innerHTML = `
   </div>
   <div class="modal gallery-modal" role="dialog" aria-modal="true" aria-label="Development gallery" aria-hidden="true"><button class="modal-close" aria-label="Close">×</button><div class="lightbox-stage"><button class="gallery-prev" aria-label="Previous image">←</button><img alt="Mamre Heights development view"><button class="gallery-next" aria-label="Next image">→</button></div><div class="gallery-caption"><span>01 / 06</span><p></p></div></div>
   <div class="modal site-gallery-modal" role="dialog" aria-modal="true" aria-labelledby="site-gallery-title" aria-hidden="true">
-    <header class="site-viewer-header"><div><span>Actual site · Mamre, Western Cape</span><h2 id="site-gallery-title">Development location</h2></div><div><button class="site-gallery-fullscreen" aria-label="View gallery fullscreen">⛶</button><button class="modal-close" aria-label="Close">×</button></div></header>
+    <header class="site-viewer-header"><div><span>Local character · Mamre, Western Cape</span><h2 id="site-gallery-title">Development location</h2></div><div><button class="site-gallery-fullscreen" aria-label="View gallery fullscreen">⛶</button><button class="modal-close" aria-label="Close">×</button></div></header>
     <div class="site-viewer-stage">
       <button class="site-viewer-prev" aria-label="Previous aerial image">←</button>
-      <figure><img alt="Aerial photograph of the Mamre Heights development location"><figcaption><span class="site-viewer-count">01 / 14</span><b class="site-viewer-caption">Development site and surrounding Mamre neighbourhood</b></figcaption></figure>
+      <figure><img alt="Photograph showing the character of Mamre"><figcaption><span class="site-viewer-count">01 / 06</span><b class="site-viewer-caption">Historic architecture and local character</b></figcaption></figure>
       <button class="site-viewer-next" aria-label="Next aerial image">→</button>
     </div>
     <div class="site-viewer-thumbs" aria-label="Aerial image thumbnails"></div>
@@ -304,22 +305,14 @@ $('.disclaimer-button').onclick=()=>openModal($('.disclaimer-modal'));
 
 const siteGalleryModal = $('.site-gallery-modal');
 const siteGalleryCaptions = [
-  'Established neighbourhood, community fields and the development surrounds',
-  'The development site within the wider Mamre landscape',
-  'Existing site roads and the adjoining residential community',
-  'Neighbourhood edge and wider development land',
-  'Southern approach across the site toward Mamre',
-  'Internal road network and surrounding residential fabric',
-  'Western site edge and natural landscape',
-  'Wider landscape connection beyond the neighbourhood',
-  'Development roads, plots and established community context',
-  'Main-road connection into the Mamre neighbourhood',
-  'Existing intersection and local movement network',
-  'Mamre main route and surrounding homes',
-  'Development land and completed internal road infrastructure',
-  'Complete aerial overview of the Mamre Heights location'
+  'Historic gabled facade and timber veranda detail',
+  'Whitewashed heritage building set within mature gardens',
+  'Cape-style building, garden court and established trees',
+  'Historic facade, thatched gables and landscaped frontage',
+  'The Winkel building and its garden setting',
+  'Tree-lined public realm and local architectural character'
 ];
-let siteGalleryIndex = 13;
+let siteGalleryIndex = 1;
 
 LOCATION_SHOTS.forEach((name, index) => {
   const button = document.createElement('button');
