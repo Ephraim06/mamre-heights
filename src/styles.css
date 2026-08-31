@@ -45,15 +45,29 @@
 .partners-intro .eyebrow{display:none}
 .partners-intro h2{font-size:clamp(48px,5.3vw,82px);line-height:.98}
 .partners-intro>p:last-child{max-width:440px;margin:0 0 5px;color:#ffffff9d;font-size:14px;line-height:1.85}
-.partner-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.partner-card{min-width:0;background:#f1ede5;border:1px solid #ffffff28;color:var(--ink);transition:transform .35s,box-shadow .35s,border-color .35s}
+.partner-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.partner-card{position:relative;min-width:0;background:#f1ede5;border:1px solid #ffffff28;color:var(--ink);overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s}
 .partner-card:hover{position:relative;z-index:2;transform:translateY(-6px);border-color:var(--gold);box-shadow:0 24px 65px #00171470}
-.partner-logo{height:220px;padding:0;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
+.partner-logo{height:250px;padding:0;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
 .partner-logo img{display:block;width:auto!important;height:auto!important;max-width:68%!important;max-height:62%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
 .partner-azaria .partner-logo{background:#0b1e1a}
-.partner-azaria .partner-logo img{max-width:78%!important;max-height:74%!important}
-.partner-adriaans .partner-logo img{max-width:54%!important;max-height:58%!important}
+.partner-azaria .partner-logo img{max-width:66%!important;max-height:68%!important}
 .partner-betterbond .partner-logo img{max-width:67%!important;max-height:58%!important}
+.partner-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.75fr) minmax(290px,.65fr);background:#fff}
+.partner-team-photo{min-height:0;aspect-ratio:1600/509;background:#fff;overflow:hidden}
+.partner-team-photo img,.partner-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.partner-feature:hover .partner-team-photo img,.partner-photo-card:hover .partner-photo img{transform:scale(1.025)}
+.partner-feature-brand{position:relative;padding:clamp(28px,3.2vw,48px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:#f8f5ee}
+.partner-feature-brand:before{content:"";position:absolute;left:0;top:50%;width:42px;height:1px;background:var(--gold);transform:translate(-50%,-50%)}
+.partner-feature-brand>img{display:block;width:min(175px,68%);height:auto;margin:18px 0 16px;mix-blend-mode:multiply}
+.partner-kicker{color:var(--gold);text-transform:uppercase;font-size:7px;letter-spacing:1.8px}
+.partner-feature-brand p{max-width:320px;color:#63716d;font:17px/1.4 var(--serif)}
+.partner-feature-brand a{margin-top:18px;color:var(--green);text-transform:uppercase;font-size:8px;font-weight:700;letter-spacing:1.5px;border-bottom:1px solid #c6a865;padding-bottom:7px}
+.partner-feature-brand a span{margin-left:8px;color:var(--gold)}
+.partner-feature>.partner-meta{grid-column:1/-1}
+.partner-photo{height:250px;background:#d8d2c8;overflow:hidden}
+.partner-buco .partner-photo img{object-position:center 48%}
+.partner-timbercity .partner-photo img{object-position:center}
 .partner-meta{min-height:84px;padding:17px 20px;display:grid;grid-template-columns:35px 1fr;gap:12px;align-items:center;border-top:1px solid #d3cec4}
 .partner-meta>span{color:var(--gold);font:17px var(--serif)}
 .partner-meta div{display:flex;flex-direction:column;gap:5px}
@@ -155,7 +169,7 @@
   .approved-plan-preview{height:620px;min-height:0}
   .plans-viewer-body{grid-template-columns:220px 1fr}
   .partners-intro{grid-template-columns:1fr 1fr}.partners-intro .section-number{grid-column:1/-1}.partners-intro>p:last-child{grid-column:2}
-  .partner-grid{grid-template-columns:1fr 1fr}.partner-card:first-child{grid-column:1/-1}.partner-card:nth-child(2),.partner-card:nth-child(3){border-top:1px solid #ffffff28}
+  .partner-feature{grid-template-columns:minmax(0,1.55fr) minmax(250px,.65fr)}.partner-feature-brand{padding:30px}
   .site-gallery-mosaic{height:620px}
 }
 @media(max-width:680px){
@@ -171,7 +185,7 @@
   .plan-mobile-hint{display:block;position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:max-content;max-width:90%;padding:8px 11px;background:#052d29dc;color:#fff;text-align:center;text-transform:uppercase;letter-spacing:1px;font-size:6px;pointer-events:none}
   .mobile-plan-select{display:block;min-width:0;width:132px;height:39px;padding:0 25px 0 9px;border-color:#ffffff27;background:#082f2b;color:#fff;font-size:8px;text-overflow:ellipsis}
   .partners-intro{display:block;margin-bottom:42px}.partners-intro .section-number{margin-bottom:35px}.partners-intro h2{font-size:43px}.partners-intro>p:last-child{margin-top:25px}
-  .partner-grid{display:grid;grid-template-columns:1fr;border:0;gap:12px}.partner-card,.partner-card:first-child{grid-column:auto;border:1px solid #ffffff28}.partner-card:nth-child(2),.partner-card:nth-child(3){border-top:1px solid #ffffff28}.partner-logo{height:190px}.partner-meta{min-height:76px}
+  .partner-grid{display:grid;grid-template-columns:1fr;border:0;gap:12px}.partner-card{grid-column:auto;border:1px solid #ffffff28}.partner-feature{grid-column:auto;display:block}.partner-team-photo{min-height:0;aspect-ratio:1600/509}.partner-feature-brand{padding:31px 28px 34px}.partner-feature-brand:before{display:none}.partner-feature-brand>img{width:155px;margin:20px 0 17px}.partner-feature-brand p{font-size:17px}.partner-feature-brand a{margin-top:20px}.partner-logo,.partner-photo{height:190px}.partner-meta{min-height:76px}
   .site-gallery-head{grid-template-columns:1fr;gap:28px;margin-bottom:42px}.site-gallery-head h2{font-size:43px}.site-gallery-intro .arrow-link{margin-top:12px}
   .site-gallery-mosaic{display:flex;height:470px;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory}.site-shot,.site-shot-main{flex:0 0 84vw;grid-row:auto;scroll-snap-align:center}.site-shot-caption{left:18px;right:18px;bottom:18px}.site-shot-caption b{font-size:21px}
   .site-gallery-facts{justify-content:flex-start;overflow-x:auto;gap:17px;padding-top:23px}

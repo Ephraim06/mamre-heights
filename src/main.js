@@ -195,20 +195,36 @@ document.querySelector('#app').innerHTML = `
         <div class="section-number light">10 / Development partners</div>
         <p class="eyebrow reveal">The team behind Mamre Heights</p>
         <h2 class="reveal">Built together.<br><em>Delivered with purpose.</em></h2>
-        <p class="reveal">A trusted team of property, professional and finance partners working together to bring this landmark Mamre development to life.</p>
+        <p class="reveal">A trusted team spanning property, law, finance, building supply and interiors—working together to bring Mamre Heights to life.</p>
       </div>
       <div class="partner-grid reveal" aria-label="Mamre Heights development partners">
+        <article class="partner-card partner-adriaans partner-feature">
+          <div class="partner-team-photo">
+            <img src="${A}partners/Adriaans_attorneys_team-og.jpeg" alt="The Adriaans Attorneys team" loading="lazy">
+          </div>
+          <div class="partner-feature-brand">
+            <span class="partner-kicker">Legal insight · Development support</span>
+            <img src="${A}partners/adriaans.jpg" alt="Adriaans Attorneys" loading="lazy">
+            <p>Keeping the development journey clear, considered and lawfully sound.</p>
+            <a href="https://adriaansattorneys.com/our-team/" target="_blank" rel="noopener noreferrer">Meet the team <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="partner-meta"><span>01</span><div><b>Adriaans Attorneys</b><small>Legal partner</small></div></div>
+        </article>
         <article class="partner-card partner-azaria">
           <div class="partner-logo"><img src="${A}partners/azaria-property-developments.png" alt="Azaria Property Developers"></div>
-          <div class="partner-meta"><span>01</span><div><b>Azaria Property Developers</b><small>Property development</small></div></div>
-        </article>
-        <article class="partner-card partner-adriaans">
-          <div class="partner-logo"><img src="${A}partners/adriaans.jpg" alt="Adriaans"></div>
-          <div class="partner-meta"><span>02</span><div><b>Adriaans</b><small>Development partner</small></div></div>
+          <div class="partner-meta"><span>02</span><div><b>Azaria Property Developers</b><small>Property development</small></div></div>
         </article>
         <article class="partner-card partner-betterbond">
           <div class="partner-logo"><img src="${A}partners/betterbond.jpg" alt="BetterBond"></div>
           <div class="partner-meta"><span>03</span><div><b>BetterBond</b><small>Home finance partner</small></div></div>
+        </article>
+        <article class="partner-card partner-photo-card partner-buco">
+          <div class="partner-photo"><img src="${A}partners/buco-storefront-hd.png" alt="BUCO building supply store" loading="lazy"></div>
+          <div class="partner-meta"><span>04</span><div><b>BUCO</b><small>Building materials partner</small></div></div>
+        </article>
+        <article class="partner-card partner-photo-card partner-timbercity">
+          <div class="partner-photo"><img src="${A}partners/timbercity-kitchens-hd.png" alt="Timbercity kitchen and cabinetry portfolio" loading="lazy"></div>
+          <div class="partner-meta"><span>05</span><div><b>Timbercity</b><small>Kitchens &amp; cabinetry partner</small></div></div>
         </article>
       </div>
     </section>
