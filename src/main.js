@@ -200,7 +200,7 @@ document.querySelector('#app').innerHTML = `
       <div class="partner-grid reveal" aria-label="Mamre Heights development partners">
         <article class="partner-card partner-adriaans partner-feature">
           <div class="partner-team-photo">
-            <img src="${A}partners/Adriaans_attorneys_team-og.jpeg" alt="The Adriaans Attorneys team" loading="lazy">
+            <img src="${A}partners/Adriaans_attorneys_team-og.png" alt="The Adriaans Attorneys team" loading="lazy">
           </div>
           <div class="partner-feature-brand">
             <span class="partner-kicker">Legal insight · Development support</span>
