@@ -26,7 +26,7 @@ document.querySelector('#app').innerHTML = `
       <span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span>
     </a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#approved-plans">Plans</a><a href="#partners">Partners</a>
+      <a href="#residences">Residences</a><a href="#lifestyle">Lifestyle</a><a href="#location">Location</a><a href="#pricing">Pricing</a><a href="#approved-plans">Plans</a><a href="#partners">Partners</a>
     </nav>
     <div class="header-actions">
       <button class="text-button open-enquiry" data-interest="General enquiry">Register interest</button>
@@ -43,9 +43,10 @@ document.querySelector('#app').innerHTML = `
       <a href="#location"><span>03</span>Location</a>
       <a href="#site-gallery"><span>04</span>Actual site</a>
       <a href="#investment"><span>05</span>Investment</a>
-      <a href="#approved-plans"><span>06</span>Approved plans</a>
-      <a href="#partners"><span>07</span>Development partners</a>
-      <a href="#contact"><span>08</span>Enquire</a>
+      <a href="#pricing"><span>06</span>Price index</a>
+      <a href="#approved-plans"><span>07</span>Approved plans</a>
+      <a href="#partners"><span>08</span>Development partners</a>
+      <a href="#contact"><span>09</span>Enquire</a>
     </nav>
     <div class="drawer-foot">Modern community living<br>in the heart of Mamre.</div>
   </aside><div class="drawer-backdrop"></div>
@@ -89,7 +90,7 @@ document.querySelector('#app').innerHTML = `
         <h2 class="reveal">Room to arrive.<br><em>Space to become.</em></h2>
         <p class="reveal">Each 50m² apartment is shaped around natural light and easy everyday living, with quality finishes, an open-plan heart and a private balcony that extends your home outdoors.</p>
         <div class="spec-grid reveal">
-          <div><strong>20</strong><span>exclusive homes</span></div><div><strong>50m²</strong><span>well-planned unit</span></div><div><strong>Up to 10m²</strong><span>private balcony</span></div><div><strong>10</strong><span>secure garages</span></div>
+          <div><strong>20</strong><span>exclusive homes</span></div><div><strong>50m²</strong><span>well-planned unit</span></div><div><strong>Up to 10m²</strong><span>private balcony</span></div><div><strong>6</strong><span>secure garages</span></div>
         </div>
         <button class="button outline open-enquiry" data-interest="Residential apartment">Request apartment details <span>↗</span></button>
       </div>
@@ -123,7 +124,7 @@ document.querySelector('#app').innerHTML = `
         <div class="section-number">05 / On your doorstep</div><p class="eyebrow dark reveal">Shop. Connect. Belong.</p>
         <h2 class="reveal">A neighbourhood<br><em>with a heartbeat.</em></h2>
         <p class="reveal">Ten street-facing retail spaces create a lively, convenient place for residents and the wider Mamre community—from coffee and daily essentials to local services.</p>
-        <button class="button dark open-enquiry" data-interest="Retail leasing opportunity">Explore a retail opportunity <span>↗</span></button>
+        <button class="button dark open-enquiry" data-interest="Retail shop purchase">Explore a retail opportunity <span>↗</span></button>
       </div>
       <div class="retail-image image-reveal"><img src="${A}retail-hd.jpg" alt="Artist's impression of Mamre Heights retail promenade"><span class="floating-note"><b>10</b> retail spaces<br>for local enterprise</span></div>
     </section>
@@ -166,9 +167,70 @@ document.querySelector('#app').innerHTML = `
       <div class="investment-points"><div><span>01</span><b>Multiple income streams</b><p>Residential, retail and garage opportunities.</p></div><div><span>02</span><b>High-demand area</b><p>Growth and infrastructure support demand.</p></div><div><span>03</span><b>Secure & low maintenance</b><p>Modern, efficient systems and finishes.</p></div><div><span>04</span><b>Long-term value</b><p>Quality construction in a growing node.</p></div></div>
     </section>
 
+    <section id="pricing" class="price-index section-pad">
+      <div class="price-index-head">
+        <div>
+          <div class="section-number light">09 / Price index</div>
+          <p class="eyebrow reveal">Choose your opportunity</p>
+          <h2 class="reveal">A place to live.<br><em>A chance to grow.</em></h2>
+        </div>
+        <div class="price-index-intro reveal">
+          <p>Compare the complete Mamre Heights release, then tick one or more opportunities to request current availability.</p>
+          <div class="currency-switcher">
+            <label for="price-currency">View prices in</label>
+            <select id="price-currency" aria-describedby="currency-status">
+              <option value="ZAR">ZAR · South African Rand</option>
+              <option value="USD">USD · US Dollar</option>
+              <option value="EUR">EUR · Euro</option>
+              <option value="GBP">GBP · Pound Sterling</option>
+              <option value="AED">AED · UAE Dirham</option>
+              <option value="AUD">AUD · Australian Dollar</option>
+              <option value="CAD">CAD · Canadian Dollar</option>
+              <option value="NAD">NAD · Namibian Dollar</option>
+            </select>
+            <small id="currency-status" aria-live="polite">Base prices shown in ZAR</small>
+          </div>
+          <span><b>36</b> opportunities across the development</span>
+        </div>
+      </div>
+
+      <div class="price-selector reveal" aria-label="Mamre Heights price index">
+        <div class="price-table-head" aria-hidden="true"><span>Select</span><span>Property type</span><span>Release</span><span>Unit size</span><span>Price</span></div>
+        <label class="price-option" data-interest="Residential apartment">
+          <input type="checkbox" value="Residential apartment">
+          <span class="price-check" aria-hidden="true"><i>✓</i></span>
+          <span class="price-product"><small>01 / Residential</small><b>Apartments</b></span>
+          <span class="price-detail" data-label="Release"><strong>20</strong><small>apartments</small></span>
+          <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per apartment</small></span>
+          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
+        </label>
+        <label class="price-option" data-interest="Retail shop purchase">
+          <input type="checkbox" value="Retail shop purchase">
+          <span class="price-check" aria-hidden="true"><i>✓</i></span>
+          <span class="price-product"><small>02 / Commercial</small><b>Retail shops</b></span>
+          <span class="price-detail" data-label="Release"><strong>10</strong><small>retail shops</small></span>
+          <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per shop</small></span>
+          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
+        </label>
+        <label class="price-option" data-interest="Garage purchase">
+          <input type="checkbox" value="Garage purchase">
+          <span class="price-check" aria-hidden="true"><i>✓</i></span>
+          <span class="price-product"><small>03 / Secure parking</small><b>Garages</b></span>
+          <span class="price-detail" data-label="Release"><strong>6</strong><small>garages</small></span>
+          <span class="price-detail" data-label="Unit size"><strong>18m²</strong><small>per garage</small></span>
+          <span class="price-amount" data-label="Price"><small>Per garage</small><strong data-price-zar="200000">R200 000</strong></span>
+        </label>
+        <div class="price-selection-bar">
+          <p aria-live="polite"><span class="price-selected-count">0</span><b>No opportunities selected</b><small>Tick the options you would like to discuss.</small></p>
+          <button class="button gold open-enquiry price-enquiry" data-interest="General enquiry" disabled>Enquire about selected <span>↗</span></button>
+        </div>
+      </div>
+      <p class="price-disclaimer reveal">Base prices are in South African rand and may change without notice. Converted values use indicative mid-market rates and are provided for guidance only. Availability, specifications and final purchase terms are subject to confirmation. Rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a>.</p>
+    </section>
+
     <section id="approved-plans" class="approved-plans section-pad">
       <div class="approved-plans-copy">
-        <div class="section-number">09 / Municipal approval</div>
+        <div class="section-number">10 / Municipal approval</div>
         <p class="eyebrow dark reveal">The vision, officially approved</p>
         <h2 class="reveal">Explore every detail.<br><em>See what is taking shape.</em></h2>
         <p class="approved-plans-lead reveal">View the complete approved drawing set in exceptional detail. Move through all 36 sheets, zoom into technical notes and layouts, or download the signed plan pack for your records.</p>
@@ -192,10 +254,10 @@ document.querySelector('#app').innerHTML = `
 
     <section id="partners" class="partners section-pad">
       <div class="partners-intro">
-        <div class="section-number light">10 / Development partners</div>
+        <div class="section-number light">11 / Development partners</div>
         <p class="eyebrow reveal">The team behind Mamre Heights</p>
         <h2 class="reveal">Built together.<br><em>Delivered with purpose.</em></h2>
-        <p class="reveal">A trusted team spanning property, law, finance, building supply and interiors—working together to bring Mamre Heights to life.</p>
+        <p class="reveal">A trusted team spanning property development, law, home finance and lighting—working together to bring Mamre Heights to life.</p>
       </div>
       <div class="partner-grid reveal" aria-label="Mamre Heights development partners">
         <article class="partner-card partner-adriaans partner-feature">
@@ -218,27 +280,25 @@ document.querySelector('#app').innerHTML = `
           <div class="partner-logo"><img src="${A}partners/betterbond.jpg" alt="BetterBond"></div>
           <div class="partner-meta"><span>03</span><div><b>BetterBond</b><small>Home finance partner</small></div></div>
         </article>
-        <article class="partner-card partner-photo-card partner-buco">
-          <div class="partner-photo"><img src="${A}partners/buco-storefront-hd.png" alt="BUCO building supply store" loading="lazy"></div>
-          <div class="partner-meta"><span>04</span><div><b>BUCO</b><small>Building materials partner</small></div></div>
-        </article>
-        <article class="partner-card partner-photo-card partner-timbercity">
-          <div class="partner-photo"><img src="${A}partners/timbercity-kitchens-hd.png" alt="Timbercity kitchen and cabinetry portfolio" loading="lazy"></div>
-          <div class="partner-meta"><span>05</span><div><b>Timbercity</b><small>Kitchens &amp; cabinetry partner</small></div></div>
+        <article class="partner-card partner-eurolux">
+          <a class="partner-logo" href="https://www.eurolux.co.za/" target="_blank" rel="noopener noreferrer" aria-label="Visit the Eurolux website">
+            <img src="${A}partners/eurolux-logo.jpg" alt="Eurolux" loading="lazy">
+          </a>
+          <div class="partner-meta"><span>04</span><div><b>Eurolux</b><small>Lighting partner</small></div></div>
         </article>
       </div>
     </section>
 
     <section id="contact" class="contact section-pad">
       <div class="contact-top"><div><p class="eyebrow reveal">Your next chapter starts here</p><h2 class="reveal">Live. Shop.<br><em>Connect. Thrive.</em></h2></div><p class="reveal">Register your interest and let our property professionals help you take the next step with confidence.</p></div>
-      <div class="contact-actions reveal"><button class="contact-choice open-enquiry" data-interest="Residential apartment"><span>01</span><b>I'm looking to live here</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Investment opportunity"><span>02</span><b>I'm looking to invest</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Retail leasing opportunity"><span>03</span><b>I'm looking for retail space</b><i>↗</i></button></div>
+      <div class="contact-actions reveal"><button class="contact-choice open-enquiry" data-interest="Residential apartment"><span>01</span><b>I'm looking to live here</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Investment opportunity"><span>02</span><b>I'm looking to invest</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Retail shop purchase"><span>03</span><b>I'm looking for retail space</b><i>↗</i></button></div>
       <footer><a class="brand footer-brand" href="#top"><span class="brand-monogram">MH</span><span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span></a><div>Marceleno & Gaylin<br>Property Professionals</div><div><a href="${BROCHURE}" target="_blank">Download brochure ↗</a><a href="${APPROVED_PLANS}" download>Download approved plans ↓</a><button class="disclaimer-button">Disclaimer</button></div><small>© 2026 Mamre Heights. Artist's impressions are for illustrative purposes only.</small></footer>
     </section>
   </main>
 
   <div class="modal enquiry-modal" role="dialog" aria-modal="true" aria-labelledby="enquiry-title" aria-hidden="true">
     <div class="modal-panel"><button class="modal-close" aria-label="Close">×</button><div class="modal-kicker">Register your interest</div><h2 id="enquiry-title">Let's find your<br><em>place at Mamre Heights.</em></h2><p>Tell us a little about what you’re looking for and a property professional will be in touch.</p>
-      <form id="lead-form"><label><span>Full name</span><input name="name" required placeholder="Your name"></label><label><span>Phone number</span><input name="phone" type="tel" required placeholder="e.g. 082 123 4567"></label><label><span>Email address</span><input name="email" type="email" required placeholder="you@example.com"></label><label><span>I'm interested in</span><select name="interest"><option>Residential apartment</option><option>Investment opportunity</option><option>Retail leasing opportunity</option><option>General enquiry</option></select></label><label class="consent"><input type="checkbox" required><span>I consent to being contacted about Mamre Heights.</span></label><button class="button gold" type="submit">Send my enquiry <span>↗</span></button></form>
+      <form id="lead-form"><label><span>Full name</span><input name="name" autocomplete="name" required placeholder="Your name"></label><label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 082 123 4567"></label><label><span>Email address</span><input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label><label><span>I'm interested in</span><select name="interest"><option>Residential apartment</option><option>Investment opportunity</option><option>Retail shop purchase</option><option>Garage purchase</option><option>Multiple property opportunities</option><option>General enquiry</option></select></label><label class="consent"><input type="checkbox" required><span>I consent to being contacted about Mamre Heights.</span></label><button class="button gold" type="submit">Send my enquiry <span>↗</span></button></form>
       <div class="form-success"><span>✓</span><h3>Thank you.</h3><p>Your interest has been registered. A property professional will be in touch soon.</p><button class="button outline close-success">Continue exploring</button></div>
     </div>
   </div>
@@ -284,7 +344,14 @@ const $$ = (s, scope = document) => [...scope.querySelectorAll(s)];
 // The interface should never wait on every large marketing image before it
 // becomes usable, especially now that the approved drawing set is available.
 setTimeout(() => document.body.classList.add('loaded'), 300);
-if (location.hash) setTimeout(() => document.querySelector(location.hash)?.scrollIntoView(), 50);
+if (location.hash) setTimeout(() => {
+  const target = document.querySelector(location.hash);
+  if (!target) return;
+  const priorScrollBehavior = document.documentElement.style.scrollBehavior;
+  document.documentElement.style.scrollBehavior = 'auto';
+  target.scrollIntoView({ block: 'start' });
+  requestAnimationFrame(() => { document.documentElement.style.scrollBehavior = priorScrollBehavior; });
+}, 700);
 
 const header = $('.site-header');
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 50), { passive: true });
@@ -301,6 +368,96 @@ const countObserver = new IntersectionObserver(entries => entries.forEach(e => {
 $$('[data-count]').forEach(el => countObserver.observe(el));
 
 if (matchMedia('(pointer:fine)').matches) { const dot=$('.cursor-dot'); document.addEventListener('mousemove',e=>{dot.style.transform=`translate(${e.clientX}px,${e.clientY}px)`}); $$('a,button').forEach(el=>{el.onmouseenter=()=>dot.classList.add('active'); el.onmouseleave=()=>dot.classList.remove('active')}); }
+
+const priceOptions = $$('.price-option');
+const priceEnquiry = $('.price-enquiry');
+const priceCount = $('.price-selected-count');
+const priceSummary = $('.price-selection-bar b');
+function updatePriceSelection() {
+  const selected = priceOptions.filter(option => $('input', option).checked);
+  priceOptions.forEach(option => option.classList.toggle('selected', $('input', option).checked));
+  priceCount.textContent = selected.length;
+  priceSummary.textContent = selected.length ? `${selected.length} ${selected.length === 1 ? 'opportunity' : 'opportunities'} selected` : 'No opportunities selected';
+  priceEnquiry.disabled = selected.length === 0;
+  priceEnquiry.dataset.interest = selected.length === 1 ? $('input', selected[0]).value : selected.length > 1 ? 'Multiple property opportunities' : 'General enquiry';
+}
+priceOptions.forEach(option => $('input', option).addEventListener('change', updatePriceSelection));
+updatePriceSelection();
+
+const currencySelect = $('#price-currency');
+const currencyStatus = $('#currency-status');
+const priceValues = $$('[data-price-zar]');
+const ratesCacheKey = 'mamre-heights-zar-rates-v1';
+const currencyPreferenceKey = 'mamre-heights-price-currency';
+const ratesCacheLifetime = 12 * 60 * 60 * 1000;
+let exchangeRates = { ZAR: 1 };
+
+function formatConvertedPrice(zarValue, currency) {
+  const converted = Math.round(zarValue * (exchangeRates[currency] || 1));
+  const amount = converted.toLocaleString('en-ZA', { maximumFractionDigits: 0 });
+  return currency === 'ZAR' ? `R${amount}` : `${currency} ${amount}`;
+}
+
+function renderCurrency(currency) {
+  priceValues.forEach(value => { value.textContent = formatConvertedPrice(+value.dataset.priceZar, currency); });
+}
+
+function readCachedRates() {
+  try {
+    const cached = JSON.parse(localStorage.getItem(ratesCacheKey));
+    if (cached?.rates && Date.now() - cached.savedAt < ratesCacheLifetime) return cached;
+  } catch { /* A blocked or malformed cache should never break pricing. */ }
+  return null;
+}
+
+async function loadExchangeRates() {
+  const cached = readCachedRates();
+  if (cached) return cached;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch('https://open.er-api.com/v6/latest/ZAR', { signal: controller.signal });
+    if (!response.ok) throw new Error('Rate service unavailable');
+    const data = await response.json();
+    if (data.result !== 'success' || !data.rates) throw new Error('Invalid rate response');
+    const fresh = { rates: data.rates, updatedAt: data.time_last_update_unix * 1000, savedAt: Date.now() };
+    try { localStorage.setItem(ratesCacheKey, JSON.stringify(fresh)); } catch { /* Caching is optional. */ }
+    return fresh;
+  } finally { clearTimeout(timeout); }
+}
+
+async function selectCurrency(currency) {
+  if (currency === 'ZAR') {
+    exchangeRates = { ...exchangeRates, ZAR: 1 };
+    renderCurrency('ZAR');
+    currencyStatus.textContent = 'Base prices shown in ZAR';
+    return;
+  }
+  currencySelect.disabled = true;
+  currencyStatus.textContent = `Loading live ${currency} rate…`;
+  try {
+    const data = await loadExchangeRates();
+    if (!data.rates[currency]) throw new Error('Currency unavailable');
+    exchangeRates = data.rates;
+    renderCurrency(currency);
+    const updateDate = data.updatedAt ? new Date(data.updatedAt).toLocaleDateString('en-ZA', { day: 'numeric', month: 'short', year: 'numeric' }) : 'recently';
+    currencyStatus.textContent = `Indicative rate updated ${updateDate}`;
+  } catch {
+    currencySelect.value = 'ZAR';
+    renderCurrency('ZAR');
+    currencyStatus.textContent = 'Live rates unavailable · Showing ZAR';
+  } finally { currencySelect.disabled = false; }
+}
+
+currencySelect.addEventListener('change', () => {
+  try { localStorage.setItem(currencyPreferenceKey, currencySelect.value); } catch { /* Preference storage is optional. */ }
+  selectCurrency(currencySelect.value);
+});
+try {
+  const savedCurrency = localStorage.getItem(currencyPreferenceKey);
+  if ([...currencySelect.options].some(option => option.value === savedCurrency)) currencySelect.value = savedCurrency;
+} catch { /* Default to ZAR when storage is unavailable. */ }
+selectCurrency(currencySelect.value);
 
 function openModal(modal) { modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.classList.add('no-scroll'); }
 function closeModal(modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.classList.remove('no-scroll'); }
