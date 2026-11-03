@@ -65,8 +65,8 @@ document.querySelector('#app').innerHTML = `
       </div>
       <div class="hero-rail"><span>Scroll to discover</span><i></i></div>
       <div class="hero-stats">
-        <div><strong data-count="20">0</strong><span>Modern apartments</span></div>
-        <div><strong data-count="10">0</strong><span>Retail spaces</span></div>
+        <div><strong data-count="10">0</strong><span>Modern apartments</span></div>
+        <div><strong data-count="11">0</strong><span>Retail spaces</span></div>
         <div><strong>50m²</strong><span>Thoughtful layouts</span></div>
         <div><strong>10m²</strong><span>Balconies up to</span></div>
       </div>
@@ -90,7 +90,7 @@ document.querySelector('#app').innerHTML = `
         <h2 class="reveal">Room to arrive.<br><em>Space to become.</em></h2>
         <p class="reveal">Each 50m² apartment is shaped around natural light and easy everyday living, with quality finishes, an open-plan heart and a private balcony that extends your home outdoors.</p>
         <div class="spec-grid reveal">
-          <div><strong>20</strong><span>exclusive homes</span></div><div><strong>50m²</strong><span>well-planned unit</span></div><div><strong>Up to 10m²</strong><span>private balcony</span></div><div><strong>6</strong><span>secure garages</span></div>
+          <div><strong>10</strong><span>exclusive homes</span></div><div><strong>50m²</strong><span>well-planned unit</span></div><div><strong>Up to 10m²</strong><span>private balcony</span></div><div><strong>7</strong><span>secure garages</span></div>
         </div>
         <button class="button outline open-enquiry" data-interest="Residential apartment">Request apartment details <span>↗</span></button>
       </div>
@@ -106,12 +106,12 @@ document.querySelector('#app').innerHTML = `
     </section>
 
     <section id="lifestyle" class="lifestyle">
-      <div class="lifestyle-media image-reveal"><img src="${A}amenities-hd.jpg" alt="Landscaped children's play area at Mamre Heights"></div>
+      <div class="lifestyle-media image-reveal"><img src="${A}amenities-car-wash-hd.png" alt="Covered two-bay car wash amenity at Mamre Heights"></div>
       <div class="lifestyle-card reveal">
         <div class="section-number light">04 / Life at Mamre</div>
         <p class="eyebrow">Spaces to live well</p><h2>Made for more<br><em>every day.</em></h2>
         <div class="amenity-list">
-          <div><span>01</span><p><b>Children's play area</b>Safe, open space for little ones to play.</p></div>
+          <div><span>01</span><p><b>On-site car wash</b>Two covered bays for convenient resident car care.</p></div>
           <div><span>02</span><p><b>Secure living</b>Controlled access and a protected boundary.</p></div>
           <div><span>03</span><p><b>Fibre ready</b>Fast connectivity from the day you arrive.</p></div>
           <div><span>04</span><p><b>Landscaped commons</b>Places to pause, meet and reconnect.</p></div>
@@ -123,10 +123,10 @@ document.querySelector('#app').innerHTML = `
       <div class="retail-copy">
         <div class="section-number">05 / On your doorstep</div><p class="eyebrow dark reveal">Shop. Connect. Belong.</p>
         <h2 class="reveal">A neighbourhood<br><em>with a heartbeat.</em></h2>
-        <p class="reveal">Ten street-facing retail spaces create a lively, convenient place for residents and the wider Mamre community—from coffee and daily essentials to local services.</p>
+        <p class="reveal">Eleven street-facing retail spaces create a lively, convenient place for residents and the wider Mamre community—from coffee and daily essentials to local services.</p>
         <button class="button dark open-enquiry" data-interest="Retail shop purchase">Explore a retail opportunity <span>↗</span></button>
       </div>
-      <div class="retail-image image-reveal"><img src="${A}retail-hd.jpg" alt="Artist's impression of Mamre Heights retail promenade"><span class="floating-note"><b>10</b> retail spaces<br>for local enterprise</span></div>
+      <div class="retail-image image-reveal"><img src="${A}retail-hd.jpg" alt="Artist's impression of Mamre Heights retail promenade"><span class="floating-note"><b>11</b> retail spaces<br>for local enterprise</span></div>
     </section>
 
     <section id="location" class="location">
@@ -190,7 +190,7 @@ document.querySelector('#app').innerHTML = `
             </select>
             <small id="currency-status" aria-live="polite">Base prices shown in ZAR</small>
           </div>
-          <span><b>36</b> opportunities across the development</span>
+          <span><b>28</b> opportunities across the development</span>
         </div>
       </div>
 
@@ -200,7 +200,7 @@ document.querySelector('#app').innerHTML = `
           <input type="checkbox" value="Residential apartment">
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>01 / Residential</small><b>Apartments</b></span>
-          <span class="price-detail" data-label="Release"><strong>20</strong><small>apartments</small></span>
+          <span class="price-detail" data-label="Release"><strong>10</strong><small>apartments</small></span>
           <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per apartment</small></span>
           <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
         </label>
@@ -208,7 +208,7 @@ document.querySelector('#app').innerHTML = `
           <input type="checkbox" value="Retail shop purchase">
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>02 / Commercial</small><b>Retail shops</b></span>
-          <span class="price-detail" data-label="Release"><strong>10</strong><small>retail shops</small></span>
+          <span class="price-detail" data-label="Release"><strong>11</strong><small>retail shops</small></span>
           <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per shop</small></span>
           <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
         </label>
@@ -216,7 +216,7 @@ document.querySelector('#app').innerHTML = `
           <input type="checkbox" value="Garage purchase">
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>03 / Secure parking</small><b>Garages</b></span>
-          <span class="price-detail" data-label="Release"><strong>6</strong><small>garages</small></span>
+          <span class="price-detail" data-label="Release"><strong>7</strong><small>garages</small></span>
           <span class="price-detail" data-label="Unit size"><strong>18m²</strong><small>per garage</small></span>
           <span class="price-amount" data-label="Price"><small>Per garage</small><strong data-price-zar="200000">R200 000</strong></span>
         </label>
@@ -470,7 +470,7 @@ $$('.open-enquiry').forEach(b=>b.onclick=()=>{ const interest=b.dataset.interest
 $('#lead-form').onsubmit=e=>{e.preventDefault(); e.currentTarget.style.display='none'; $('.form-success',enquiry).classList.add('show');};
 $('.close-success').onclick=()=>{ closeModal(enquiry); setTimeout(()=>{ $('#lead-form').reset(); $('#lead-form').style.display='grid'; $('.form-success',enquiry).classList.remove('show'); },350); };
 
-const galleryItems=[['hero-hd.jpg','Modern community living'],['interior-hd.jpg','Bright open-plan interiors'],['retail-hd.jpg','Everyday convenience below'],['amenities-hd.jpg','Spaces for families'],['investment-hd.jpg','Built for long-term value'],['balcony-hd.jpg','Private outdoor living']];
+const galleryItems=[['hero-hd.jpg','Modern community living'],['interior-hd.jpg','Bright open-plan interiors'],['retail-hd.jpg','Everyday convenience below'],['amenities-car-wash-hd.png','Convenient on-site car care'],['investment-hd.jpg','Built for long-term value'],['balcony-hd.jpg','Private outdoor living']];
 let galleryIndex=0; const gm=$('.gallery-modal');
 function renderGallery(){const [src,cap]=galleryItems[galleryIndex]; $('img',gm).src=A+src; $('.gallery-caption span',gm).textContent=`${String(galleryIndex+1).padStart(2,'0')} / ${String(galleryItems.length).padStart(2,'0')}`; $('.gallery-caption p',gm).textContent=cap;}
 $('.open-gallery').onclick=()=>{renderGallery();openModal(gm)}; $('.gallery-prev').onclick=()=>{galleryIndex=(galleryIndex-1+galleryItems.length)%galleryItems.length;renderGallery()}; $('.gallery-next').onclick=()=>{galleryIndex=(galleryIndex+1)%galleryItems.length;renderGallery()};
