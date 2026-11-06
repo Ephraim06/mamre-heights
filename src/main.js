@@ -6,6 +6,7 @@ const openedFromBuild = normalizedScriptPath.endsWith('/dist/src/main.js');
 const A = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/assets/' : '../assets/', scriptLocation).href;
 const BROCHURE = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/mamre-heights.pdf' : '../mamre-heights.pdf', scriptLocation).href;
 const APPROVED_PLANS = new URL('Plans/ERF611%20Mamre%20Municipal%20Approval%20plans.pdf', A).href;
+const PRICE_LIST = new URL(location.protocol === 'file:' && !openedFromBuild ? '../public/mamre-heights-price-list.pdf' : '../mamre-heights-price-list.pdf', scriptLocation).href;
 const DEVELOPMENT_LOCATION = new URL('development-location/new/', A).href;
 const LOCATION_SHOTS = [
   'WhatsApp Image 2026-08-25 at 20.45.39 (1).jpeg',
@@ -67,8 +68,8 @@ document.querySelector('#app').innerHTML = `
       <div class="hero-stats">
         <div><strong data-count="10">0</strong><span>Modern apartments</span></div>
         <div><strong data-count="11">0</strong><span>Retail spaces</span></div>
-        <div><strong>50m²</strong><span>Thoughtful layouts</span></div>
-        <div><strong>10m²</strong><span>Balconies up to</span></div>
+        <div><strong>63–67m²</strong><span>Total apartment sizes</span></div>
+        <div><strong>8.95m²</strong><span>Balconies up to</span></div>
       </div>
     </section>
 
@@ -88,9 +89,9 @@ document.querySelector('#app').innerHTML = `
         <div class="section-number light">02 / The residences</div>
         <p class="eyebrow reveal">Bright. Modern. Made for living.</p>
         <h2 class="reveal">Room to arrive.<br><em>Space to become.</em></h2>
-        <p class="reveal">Each 50m² apartment is shaped around natural light and easy everyday living, with quality finishes, an open-plan heart and a private balcony that extends your home outdoors.</p>
+        <p class="reveal">Each apartment is shaped around natural light and easy everyday living, with quality finishes, an open-plan heart and a private balcony that extends your home outdoors.</p>
         <div class="spec-grid reveal">
-          <div><strong>10</strong><span>exclusive homes</span></div><div><strong>50m²</strong><span>well-planned unit</span></div><div><strong>Up to 10m²</strong><span>private balcony</span></div><div><strong>7</strong><span>secure garages</span></div>
+          <div><strong>10</strong><span>exclusive homes</span></div><div><strong>63–67m²</strong><span>total unit sizes</span></div><div><strong>Up to 8.952m²</strong><span>private balcony</span></div><div><strong>7</strong><span>secure garages</span></div>
         </div>
         <button class="button outline open-enquiry" data-interest="Residential apartment">Request apartment details <span>↗</span></button>
       </div>
@@ -175,7 +176,7 @@ document.querySelector('#app').innerHTML = `
           <h2 class="reveal">A place to live.<br><em>A chance to grow.</em></h2>
         </div>
         <div class="price-index-intro reveal">
-          <p>Compare the complete Mamre Heights release, then tick one or more opportunities to request current availability.</p>
+          <p>Compare the approved Mamre Heights release, explore every unit below, then tick one or more opportunities to request current availability.</p>
           <div class="currency-switcher">
             <label for="price-currency">View prices in</label>
             <select id="price-currency" aria-describedby="currency-status">
@@ -201,28 +202,65 @@ document.querySelector('#app').innerHTML = `
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>01 / Residential</small><b>Apartments</b></span>
           <span class="price-detail" data-label="Release"><strong>10</strong><small>apartments</small></span>
-          <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per apartment</small></span>
-          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
+          <span class="price-detail" data-label="Total size"><strong>63.060–66.860m²</strong><small>including balcony</small></span>
+          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="1025000">R1 025 000</strong></span>
         </label>
         <label class="price-option" data-interest="Retail shop purchase">
           <input type="checkbox" value="Retail shop purchase">
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>02 / Commercial</small><b>Retail shops</b></span>
           <span class="price-detail" data-label="Release"><strong>11</strong><small>retail shops</small></span>
-          <span class="price-detail" data-label="Unit size"><strong>50m²</strong><small>per shop</small></span>
-          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="995000">R995 000</strong></span>
+          <span class="price-detail" data-label="Unit size"><strong>28.085–30.358m²</strong><small>per shop</small></span>
+          <span class="price-amount" data-label="Price"><small>From</small><strong data-price-zar="920000">R920 000</strong></span>
         </label>
         <label class="price-option" data-interest="Garage purchase">
           <input type="checkbox" value="Garage purchase">
           <span class="price-check" aria-hidden="true"><i>✓</i></span>
           <span class="price-product"><small>03 / Secure parking</small><b>Garages</b></span>
           <span class="price-detail" data-label="Release"><strong>7</strong><small>garages</small></span>
-          <span class="price-detail" data-label="Unit size"><strong>18m²</strong><small>per garage</small></span>
+          <span class="price-detail" data-label="Type"><strong>Single</strong><small>secure garage</small></span>
           <span class="price-amount" data-label="Price"><small>Per garage</small><strong data-price-zar="200000">R200 000</strong></span>
         </label>
         <div class="price-selection-bar">
           <p aria-live="polite"><span class="price-selected-count">0</span><b>No opportunities selected</b><small>Tick the options you would like to discuss.</small></p>
           <button class="button gold open-enquiry price-enquiry" data-interest="General enquiry" disabled>Enquire about selected <span>↗</span></button>
+        </div>
+      </div>
+      <div class="price-schedule reveal">
+        <div class="price-schedule-head">
+          <div><span>28 individually listed opportunities · Approved release</span><h3>Complete price schedule</h3><p>Open a category to compare every unit, size and approved price.</p></div>
+          <a class="button ghost" href="${PRICE_LIST}" download>Download price list <span>↓</span></a>
+        </div>
+        <div class="price-schedule-groups">
+          <details class="price-schedule-group" open>
+            <summary><span><i>01</i><b>Residential apartments</b><small>10 units · balconies included</small></span><em>From <strong data-price-zar="1025000">R1 025 000</strong></em></summary>
+            <div class="price-schedule-scroll"><table><thead><tr><th>Unit</th><th>Interior</th><th>Balcony</th><th>Total size</th><th>Price</th></tr></thead><tbody>
+              <tr><td>Unit 1</td><td>54.708m²</td><td>8.352m²</td><td>63.060m²</td><td data-price-zar="1025000">R1 025 000</td></tr>
+              <tr><td>Unit 2</td><td>58.439m²</td><td>8.352m²</td><td>66.791m²</td><td data-price-zar="1065000">R1 065 000</td></tr>
+              <tr><td>Unit 3</td><td>56.300m²</td><td>8.503m²</td><td>64.803m²</td><td data-price-zar="1045000">R1 045 000</td></tr>
+              <tr><td>Unit 4</td><td>58.439m²</td><td>8.352m²</td><td>66.791m²</td><td data-price-zar="1065000">R1 065 000</td></tr>
+              <tr><td>Unit 5</td><td>54.708m²</td><td>8.352m²</td><td>63.060m²</td><td data-price-zar="1025000">R1 025 000</td></tr>
+              <tr><td>Unit 6</td><td>54.708m²</td><td>8.421m²</td><td>63.129m²</td><td data-price-zar="1025000">R1 025 000</td></tr>
+              <tr><td>Unit 7</td><td>58.439m²</td><td>8.421m²</td><td>66.860m²</td><td data-price-zar="1065000">R1 065 000</td></tr>
+              <tr><td>Unit 8</td><td>56.300m²</td><td>8.952m²</td><td>65.252m²</td><td data-price-zar="1045000">R1 045 000</td></tr>
+              <tr><td>Unit 9</td><td>58.439m²</td><td>8.421m²</td><td>66.860m²</td><td data-price-zar="1065000">R1 065 000</td></tr>
+              <tr><td>Unit 10</td><td>54.708m²</td><td>8.421m²</td><td>63.129m²</td><td data-price-zar="1025000">R1 025 000</td></tr>
+            </tbody></table></div>
+          </details>
+          <details class="price-schedule-group">
+            <summary><span><i>02</i><b>Retail shops</b><small>11 street-facing opportunities</small></span><em>From <strong data-price-zar="920000">R920 000</strong></em></summary>
+            <div class="price-schedule-scroll"><table><thead><tr><th>Shop</th><th>Unit size</th><th>Price</th></tr></thead><tbody>
+              <tr><td>Shop 1</td><td>30.358m²</td><td data-price-zar="950000">R950 000</td></tr>
+              ${Array.from({ length: 9 }, (_, index) => `<tr><td>Shop ${index + 2}</td><td>28.085m²</td><td data-price-zar="920000">R920 000</td></tr>`).join('')}
+              <tr><td>Shop 11</td><td>30.358m²</td><td data-price-zar="950000">R950 000</td></tr>
+            </tbody></table></div>
+          </details>
+          <details class="price-schedule-group">
+            <summary><span><i>03</i><b>Single garages</b><small>7 secure garages</small></span><em>Each <strong data-price-zar="200000">R200 000</strong></em></summary>
+            <div class="price-schedule-scroll"><table><thead><tr><th>Garage</th><th>Type</th><th>Price</th></tr></thead><tbody>
+              ${Array.from({ length: 7 }, (_, index) => `<tr><td>Garage ${index + 1}</td><td>Single garage</td><td data-price-zar="200000">R200 000</td></tr>`).join('')}
+            </tbody></table></div>
+          </details>
         </div>
       </div>
       <p class="price-disclaimer reveal">Base prices are in South African rand and may change without notice. Converted values use indicative mid-market rates and are provided for guidance only. Availability, specifications and final purchase terms are subject to confirmation. Rates by <a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">ExchangeRate-API</a>.</p>
@@ -292,7 +330,7 @@ document.querySelector('#app').innerHTML = `
     <section id="contact" class="contact section-pad">
       <div class="contact-top"><div><p class="eyebrow reveal">Your next chapter starts here</p><h2 class="reveal">Live. Shop.<br><em>Connect. Thrive.</em></h2></div><p class="reveal">Register your interest and let our property professionals help you take the next step with confidence.</p></div>
       <div class="contact-actions reveal"><button class="contact-choice open-enquiry" data-interest="Residential apartment"><span>01</span><b>I'm looking to live here</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Investment opportunity"><span>02</span><b>I'm looking to invest</b><i>↗</i></button><button class="contact-choice open-enquiry" data-interest="Retail shop purchase"><span>03</span><b>I'm looking for retail space</b><i>↗</i></button></div>
-      <footer><a class="brand footer-brand" href="#top"><span class="brand-monogram">MH</span><span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span></a><div>Marceleno & Gaylin<br>Property Professionals</div><div><a href="${BROCHURE}" target="_blank">Download brochure ↗</a><a href="${APPROVED_PLANS}" download>Download approved plans ↓</a><button class="disclaimer-button">Disclaimer</button></div><small>© 2026 Mamre Heights. Artist's impressions are for illustrative purposes only.</small></footer>
+      <footer><a class="brand footer-brand" href="#top"><span class="brand-monogram">MH</span><span class="brand-copy"><b>Mamre Heights</b><small>Live · Shop · Thrive</small></span></a><div>Marceleno & Gaylin<br>Property Professionals</div><div><a href="${BROCHURE}" target="_blank">Download brochure ↗</a><a href="${APPROVED_PLANS}" download>Download approved plans ↓</a><a href="${PRICE_LIST}" download>Download price list ↓</a><button class="disclaimer-button">Disclaimer</button></div><small>© 2026 Mamre Heights. Artist's impressions are for illustrative purposes only.</small></footer>
     </section>
   </main>
 
@@ -383,6 +421,23 @@ function updatePriceSelection() {
 }
 priceOptions.forEach(option => $('input', option).addEventListener('change', updatePriceSelection));
 updatePriceSelection();
+
+const priceScheduleGroups = $$('.price-schedule-group');
+function replayPriceAccordion(group) {
+  group.classList.remove('is-animating');
+  void group.offsetWidth;
+  group.classList.add('is-animating');
+  clearTimeout(group.priceAnimationTimer);
+  group.priceAnimationTimer = setTimeout(() => group.classList.remove('is-animating'), 900);
+}
+priceScheduleGroups.forEach(group => {
+  group.addEventListener('toggle', () => {
+    if (!group.open) return;
+    priceScheduleGroups.forEach(other => { if (other !== group) other.open = false; });
+    replayPriceAccordion(group);
+  });
+  if (group.open) replayPriceAccordion(group);
+});
 
 const currencySelect = $('#price-currency');
 const currencyStatus = $('#currency-status');
